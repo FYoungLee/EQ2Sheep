@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QTabWidget, QHBoxLayout, QVBoxLayout, QLabel, QComboBox, \
-    QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QMessageBox, QCheckBox, QGridLayout
+    QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QMessageBox, QCheckBox, QGridLayout, QDialog
 from PyQt5.QtCore import Qt
-from PyQt5.Qt import QIcon, QSize
+from PyQt5.Qt import QIcon, QSize, QDesktopServices, QUrl
 from datetime import datetime
 import eq2s_func, eq2s_quary, eq2s_item, eq2s_char, eq2s_guild
 
@@ -13,7 +13,7 @@ class EQ2DB_MainW(QWidget):
         # set main window info and size
         self.qy = None
         self.setWindowTitle('EQII Sheep    V0.618  by: Fyoung')
-        self.setFixedSize(750, 700)
+        self.setFixedSize(750, 750)
         # create main tab object
         self.mainTabWidget = QTabWidget()
         self.add_item_tab_content()
@@ -26,8 +26,12 @@ class EQ2DB_MainW(QWidget):
         self.mainTabWidget.addTab(self.guildWidget, ' GUILDS ')
         self.mainTabWidget.tabBarClicked.connect(self.adjust_win_size)
 
-        self.mainLayout = QHBoxLayout()
+        self.mainLayout = QVBoxLayout()
         self.mainLayout.addWidget(self.mainTabWidget)
+
+        authorLayout = self.author_piece_sets()
+
+        self.mainLayout.addLayout(authorLayout)
 
         self.setLayout(self.mainLayout)
 
@@ -48,7 +52,6 @@ class EQ2DB_MainW(QWidget):
         self.guild_name_input = QLineEdit()
         guild_1st_row_layout.addWidget(self.guild_name_input)
         guild_1st_row_layout.addWidget(QLabel('Name'))
-        guild_1st_row_layout.addSpacing(30)
         # world
         self.guild_world_combox = QComboBox()
         for e in server_options.split(','):
@@ -56,7 +59,6 @@ class EQ2DB_MainW(QWidget):
         guild_1st_row_layout.addWidget(self.guild_world_combox)
         guild_1st_row_layout.addWidget(QLabel('Server'))
         guild_1st_row_layout.addSpacing(30)
-        guild_1st_row_layout.addSpacing(200)
 
         guild_2nd_row_layout = QHBoxLayout()
         # guild level
@@ -68,7 +70,7 @@ class EQ2DB_MainW(QWidget):
         self.guild_level_max_line.setFixedWidth(40)
         guild_2nd_row_layout.addWidget(self.guild_level_max_line)
         guild_2nd_row_layout.addWidget(QLabel('Guild Level'))
-        guild_2nd_row_layout.addSpacing(40)
+        guild_2nd_row_layout.addSpacing(230)
 
         # accounts
         self.guild_account_min_line = QLineEdit()
@@ -160,7 +162,6 @@ class EQ2DB_MainW(QWidget):
             self.guild_find_btn.setEnabled(True)
             return
         self.guild_find_btn.setEnabled(True)
-
 
     def display_selected_guild(self, guild):
         if guild.data(1000) == 'guild':
@@ -678,9 +679,49 @@ class EQ2DB_MainW(QWidget):
 
     def adjust_win_size(self, n_tab):
         if n_tab == 0:
-            self.setFixedSize(750, 700)
+            self.setFixedSize(750, 750)
         elif n_tab == 1:
-            self.setFixedSize(750, 350)
+            self.setFixedSize(750, 400)
         elif n_tab == 2:
-            self.setFixedSize(600, 350)
+            self.setFixedSize(600, 400)
 
+    def author_piece_sets(self):
+        bLayout = QHBoxLayout()
+        donateBtn = QPushButton()
+        donateBtn.setFixedSize(60, 30)
+        dicon = QIcon()
+        dicon.addPixmap(eq2s_func.get_pixmap_in_db(1, 'eq2icon_reserve'))
+        donateBtn.setIcon(dicon)
+        donateBtn.setIconSize(QSize(60, 25))
+        donateBtn.clicked.connect(self.whenPaypalDonateClicked)
+        donateBtn2 = QPushButton('ALIPAY')
+        donateBtn2.setFixedSize(50,30)
+        donateBtn2.clicked.connect(self.whenAlipaylDonateClicked)
+        author_Label = QLabel()
+        author_text = 'Author: Fyoung    Email: lixleon@foxmail.com    ' \
+                      'QQ: 896478    Github: https://github.com/FYoungLee'
+        author_Label.setFixedHeight(30)
+        author_Label.setText(author_text)
+        bLayout.addWidget(author_Label)
+        bLayout.addWidget(donateBtn)
+        bLayout.addWidget(donateBtn2)
+        return bLayout
+
+    def whenPaypalDonateClicked(self):
+        QDesktopServices().openUrl(QUrl('https://www.paypal.me/fyounglix'))
+
+    def whenAlipaylDonateClicked(self):
+        apay = AliPay_w(self)
+        apay.show()
+
+
+class AliPay_w(QDialog):
+    def __init__(self, parent=None):
+        super(AliPay_w, self).__init__(parent)
+        self.setWindowTitle('Thank you!')
+        layout = QVBoxLayout()
+        label = QLabel()
+        paypix = eq2s_func.get_pixmap_in_db(2, 'eq2icon_reserve')
+        label.setPixmap(paypix)
+        layout.addWidget(label)
+        self.setLayout(layout)

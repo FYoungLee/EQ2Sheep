@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox
 from PyQt5.QtCore import Qt
 from datetime import datetime
-import eq2s_func, eq2s_quary, eq2s_item, eq2s_aas, eq2s_char
+import eq2s_quary, eq2s_char
 
 
 class Eq2db_guildw(QDialog):
