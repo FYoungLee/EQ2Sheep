@@ -1,2 +1,0 @@
-,Guardian,Berserker,Paladin,Shadowknight,Monk,Bruiser,Templar,Inquisitor,Warden,Fury,Mystic,Defiler,Channeler,Wizard,Warlock,Illusionist,Coercer,Conjuror,Necromancer,Ranger,Assassin,Swashbuckler,Troubador,Dirge,Beastlord
-&,alchemist,armorer,carpenter,jeweler,provisioner,sage,tailor,weaponsmith,woodworker&,Antonia Bayle,Stormhold,Isle of Refuge,Maj'Dul,Halls of Fate,Skyfire,Thurgadin,Race To Trakanon
