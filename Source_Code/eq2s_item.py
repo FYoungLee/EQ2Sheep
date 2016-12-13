@@ -210,8 +210,9 @@ class Eq2db_itemw(QDialog):
         self.item_detail_disco.setHidden(False)
 
     def showCharWindow(self, char):
-        char_win = eq2s_char.Eq2db_charw(char.data(1001), self.parent())
-        char_win.show()
+        if char.data(1001) is not None:
+            char_win = eq2s_char.Eq2db_charw(char.data(1001), self.parent())
+            char_win.show()
 
     def saveToFavor(self):
         self.favorBtn.setEnabled(False)

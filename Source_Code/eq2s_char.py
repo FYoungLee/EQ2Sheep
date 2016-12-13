@@ -354,7 +354,7 @@ class Eq2db_char_spellsw(QDialog):
                 nmitem.setTextAlignment(Qt.AlignCenter)
                 try:
                     ticon = QIcon()
-                    ticon.addPixmap(eq2s_func.get_pixmap_in_db(spell['icon']['id']))
+                    ticon.addPixmap(eq2s_func.get_pixmap_in_db(spell['icon']['id'], 'spellicons'))
                     nmitem.setIcon(ticon)
                 except:
                     pass

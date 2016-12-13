@@ -201,7 +201,7 @@ def get_aa_tree_grid_modifier(tab_name):
         return {'x': 0.3, 'y': 0.7}
     else:
         print('Tab name "{}" can not find.'.format(tab_name))
-        return None
+        return {'x': 0.3, 'y': 0.7}
 
 
 def count_time(t):
@@ -328,6 +328,7 @@ def CookSpellText(rawObj):
             detail += desc
     detail += '</font>'
     return detail
+
 
 class CookItemText:
     def __init__(self, rawObj, short=False):
