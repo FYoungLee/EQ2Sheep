@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QDialog, QWidget, QTableWidget, QTableWidgetItem, QTabWidget, QGridLayout, QLabel
+from PyQt5.QtWidgets import QDialog, QWidget, QTableWidget, QTableWidgetItem, QTabWidget, QGridLayout, QLabel,\
+    QMessageBox
 from PyQt5.Qt import QIcon, QSize, QFont
 from PyQt5.QtCore import Qt
 import eq2s_func
@@ -43,28 +44,33 @@ class Eq2db_aas(QDialog):
             tab_widget.addTab(tab, trees_info[each]['name'])
 
         self.splnodes = {}
-        for e1 in trees_info:
-            grid_n = eq2s_func.get_aa_tree_grid_modifier(trees_info[e1]['name'])
-            for e2 in trees_info[e1]['alternateadvancementnode_list']:
-                epicon = QTableWidgetItem()
-                epicon.setFont(QFont("Times", 15, QFont.Black))
-                # get the crc group spells from local databases, cuz only one target provide,
-                # so I just extract the only list from the returned dict.
-                crcs = eq2s_func.get_db_content('crcspl', 'crc', (e2['spellcrc'],))[e2['spellcrc']]
-                # this dict intend to save ordered level(tier) crc spells, the keys means tier of this spell.
-                crcdict = {}
-                for each in crcs:
-                    crcdict[each['tier']] = each
-                epicon.setData(1000, crcdict)
-                self.splnodes[e2['nodeid']] = epicon
-                epicon.setToolTip(eq2s_func.CookSpellText(crcs[0]))
-                icon = QIcon()
-                iconid = epicon.data(1000)[1]['icon']['id']
-                # backiconid = epicon.data(1000)[0]['icon']['backdrop']
-                icon.addPixmap(eq2s_func.get_pixmap_in_db(iconid, 'spellicons'))
-                # epicon.setBackground(QBrush(eq2s_func.get_pixmap_in_db(backiconid, 'spellicons')))
-                epicon.setIcon(icon)
-                self.aa_tables[e1].setItem(int(e2['ycoord']*grid_n['y']+1), int(e2['xcoord']*grid_n['x']+1), epicon)
+        try:
+            for e1 in trees_info:
+                grid_n = eq2s_func.get_aa_tree_grid_modifier(trees_info[e1]['name'])
+                for e2 in trees_info[e1]['alternateadvancementnode_list']:
+                    epicon = QTableWidgetItem()
+                    epicon.setFont(QFont("Times", 15, QFont.Black))
+                    # get the crc group spells from local databases, cuz only one target provide,
+                    # so I just extract the only list from the returned dict.
+                    crcs = eq2s_func.get_db_content('crcspl', 'crc', (e2['spellcrc'],))[e2['spellcrc']]
+                    # this dict intend to save ordered level(tier) crc spells, the keys means tier of this spell.
+                    crcdict = {}
+                    for each in crcs:
+                        crcdict[each['tier']] = each
+                    epicon.setData(1000, crcdict)
+                    self.splnodes[e2['nodeid']] = epicon
+                    epicon.setToolTip(eq2s_func.CookSpellText(crcs[0]))
+                    icon = QIcon()
+                    iconid = epicon.data(1000)[1]['icon']['id']
+                    # backiconid = epicon.data(1000)[0]['icon']['backdrop']
+                    icon.addPixmap(eq2s_func.get_pixmap_in_db(iconid, 'spellicons'))
+                    # epicon.setBackground(QBrush(eq2s_func.get_pixmap_in_db(backiconid, 'spellicons')))
+                    epicon.setIcon(icon)
+                    self.aa_tables[e1].setItem(int(e2['ycoord']*grid_n['y']+1), int(e2['xcoord']*grid_n['x']+1), epicon)
+        except BaseException as err:
+            QMessageBox.critical(self, 'Loading Error', 'Something Bad Happen:\n{}'.format(err))
+            print(err)
+            return
 
         self.fresh_tables()
         self.throw_aas(current_aa)

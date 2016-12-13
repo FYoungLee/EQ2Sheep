@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QTextBrowser, QPu
 from PyQt5.QtCore import Qt
 from PyQt5.Qt import QIcon, QSize
 from datetime import datetime
+import json
 import eq2s_func, eq2s_quary, eq2s_item, eq2s_aas, eq2s_guild
 
 
@@ -80,23 +81,30 @@ class Eq2db_charw(QDialog):
         charLayoutBtn.addWidget(self.achieveBtn)
         charLayoutBtn.addWidget(self.guildBtn)
 
+        topLayout = QHBoxLayout()
         self.refreshBtn = QPushButton('Refresh')
         self.refreshBtn.setFixedWidth(100)
         self.refreshBtn.clicked.connect(self.sendCharQueryToThread)
-        charLayoutAll.addWidget(self.refreshBtn)
         self.refreshBtn.setEnabled(False)
+        self.favorBtn = QPushButton('Favor')
+        self.favorBtn.setFixedWidth(100)
+        self.favorBtn.clicked.connect(self.saveToFavor)
+        self.favorBtn.setEnabled(False)
+        topLayout.addWidget(self.refreshBtn)
+        topLayout.addWidget(self.favorBtn)
+
+        charLayoutAll.addLayout(topLayout)
         charLayoutAll.addLayout(charLayoutDisplay)
         charLayoutAll.addLayout(charLayoutBtn)
 
         self.setLayout(charLayoutAll)
+        self.id = charpak
+        self.sendCharQueryToThread()
 
-        if isinstance(charpak, int) or isinstance(charpak, str):
-            self.sendCharQueryToThread(charpak)
-
-    def sendCharQueryToThread(self, charID):
+    def sendCharQueryToThread(self):
         self.refreshBtn.setEnabled(False)
         url = 'http://census.daybreakgames.com/s:fyang/get/eq2/character'
-        query1 = '?id={}'.format(charID)
+        query1 = '?id={}'.format(self.id)
         query2 = '&c:resolve=equipmentslots'
         self.qy = eq2s_quary.Queries(url + query1 + query2, 'char_detail')
         self.qy.rst_sent_chars_detail.connect(self.whenCharInfoReceived)
@@ -117,13 +125,17 @@ class Eq2db_charw(QDialog):
         textInfo = eq2s_func.CookCharText(self.charDitail)
         self.statusLabel.setText(textInfo.text)
         self.displayCharEquipment()
-        if len(self.charDitail['alternateadvancements']['alternateadvancement_list']) == 0:
+        try:
+            if len(self.charDitail['alternateadvancements']['alternateadvancement_list']) == 0:
+                self.aaBtn.setEnabled(False)
+            else:
+                self.aaBtn.setEnabled(True)
+        except KeyError:
             self.aaBtn.setEnabled(False)
-        else:
-            self.aaBtn.setEnabled(True)
         self.refreshBtn.setEnabled(True)
         self.spellBtn.setEnabled(True)
         self.achieveBtn.setEnabled(True)
+        self.favorBtn.setEnabled(True)
 
     def displayCharEquipment(self):
         self.adornCollect(self.charDitail['equipmentslot_list'])
@@ -270,6 +282,22 @@ class Eq2db_charw(QDialog):
         splw.show()
         self.achieveBtn.setEnabled(True)
 
+    def saveToFavor(self):
+        self.favorBtn.setEnabled(False)
+        try:
+            cur = {'name': self.charDitail['displayname'], 'id': self.charDitail['id'],
+                   'level': self.charDitail['type']['level'], 'class': self.charDitail['type']['class']}
+        except KeyError as err:
+            QMessageBox().critical(self, 'Favor Error', 'Saving favorite failed:\n{}'.format(err))
+            return
+        try:
+            with open('char_favor.json', 'r') as f:
+                tp = json.loads(f.read())
+                tp.append(cur)
+        except:
+            tp = [cur]
+        with open('char_favor.json', 'w') as f:
+            f.write(json.dumps(tp))
 
 class Eq2db_char_spellsw(QDialog):
     def __init__(self, raw_spells, char_name, parent=None):
@@ -350,8 +378,8 @@ class Eq2db_char_achievew(QDialog):
     def __init__(self, raw_achs, char_name, parent=None):
         super(Eq2db_char_achievew, self).__init__(parent)
         self.setWindowTitle(char_name)
-        self.setFixedSize(560, 500)
-        achLayout = QHBoxLayout()
+        self.setFixedSize(640, 500)
+        achLayout = QVBoxLayout()
         achLabel = QLabel()
         labeltxt = 'Total Points: {}<br>Total Counts: {}<br>Completed: {}<br>Points: {}<br>'.format(
             raw_achs['total_points'], raw_achs['total_count'], raw_achs['completed'], raw_achs['points']
@@ -364,7 +392,6 @@ class Eq2db_char_achievew(QDialog):
         self.achTable.setSelectionBehavior(QTableWidget.SelectRows)
         self.achTable.setSelectionMode(QTableWidget.SingleSelection)
         self.achTable.setRowCount(len(raw_achs['achievement_list']))
-        self.achTable.verticalHeader().setVisiable(False)
         achLayout.addWidget(achLabel)
         achLayout.addWidget(self.achTable)
         self.setLayout(achLayout)

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget, QTabWidget, QHBoxLayout, QVBoxLayout, QLabe
 from PyQt5.QtCore import Qt
 from PyQt5.Qt import QIcon, QSize, QDesktopServices, QUrl
 from datetime import datetime
+import json
 import eq2s_func, eq2s_quary, eq2s_item, eq2s_char, eq2s_guild
 
 
@@ -12,7 +13,16 @@ class EQ2DB_MainW(QWidget):
         # connect to icons sql db
         # set main window info and size
         self.qy = None
-        self.setWindowTitle('EQII Sheep    V0.618  by: Fyoung')
+        self.itemHistory = []
+        self.charHistory = []
+        self.guildHistory = []
+        self.itemSearchTag = 0
+        self.charSearchTag = 0
+        self.guildSearchdTag = 0
+        self.gfavor = []
+        self.charfavor = []
+        self.itemfavor = []
+        self.setWindowTitle('EQII Sheep    V0.61803  by: Fyoung')
         self.setFixedSize(750, 750)
         # create main tab object
         self.mainTabWidget = QTabWidget()
@@ -82,28 +92,79 @@ class EQ2DB_MainW(QWidget):
         guild_2nd_row_layout.addWidget(self.guild_account_max_line)
         guild_2nd_row_layout.addWidget(QLabel('Accounts'))
 
+        # buttons
+        btnLayout = QHBoxLayout()
+        btnLayout.addSpacing(500)
+        self.guild_reset_btn = QPushButton('Reset')
+        self.guild_reset_btn.setFixedWidth(50)
+        self.guild_reset_btn.clicked.connect(self.guild_option_reset)
+        self.guild_previous_btn = QPushButton('<< Pre')
+        self.guild_previous_btn.setFixedWidth(50)
+        self.guild_previous_btn.setEnabled(False)
+        self.guild_previous_btn.clicked.connect(self.guildPrevious)
+        self.guild_next_btn = QPushButton('Next >>')
+        self.guild_next_btn.setFixedWidth(50)
+        self.guild_next_btn.setEnabled(False)
+        self.guild_next_btn.clicked.connect(self.guildNext)
         self.guild_find_btn = QPushButton(' Find ')
         self.guild_find_btn.setFixedWidth(100)
         self.guild_find_btn.clicked.connect(self.send_guild_query_to_thread)
+        btnLayout.addWidget(self.guild_reset_btn)
+        btnLayout.addWidget(self.guild_previous_btn)
+        btnLayout.addWidget(self.guild_next_btn)
+        btnLayout.addWidget(self.guild_find_btn)
 
         # guild table view
         self.guildTableView = QTableWidget()
         self.guildTableView.setColumnCount(4)
         self.guildTableView.setHorizontalHeaderLabels(['Name', 'Server', 'Lv', 'Accounts'])
+        self.guildTableView.setColumnWidth(0, 355)
+        self.guildTableView.setColumnWidth(1, 150)
+        self.guildTableView.setColumnWidth(2, 70)
+        self.guildTableView.setColumnWidth(3, 70)
         self.guildTableView.itemClicked.connect(self.display_selected_guild)
         self.guildTableView.setEditTriggers(QTableWidget.NoEditTriggers)
         self.guildTableView.setSortingEnabled(True)
         self.guildTableView.setSelectionBehavior(QTableWidget.SelectRows)
         self.guildTableView.setSelectionMode(QTableWidget.SingleSelection)
 
+        # favorite combox
+        favorLayout = QHBoxLayout()
+        self.guild_favorite = QComboBox()
+        self.guild_get_favor_btn = QPushButton('Get')
+        self.guild_get_favor_btn.setFixedWidth(40)
+        self.guild_get_favor_btn.clicked.connect(self.guild_favorite_selected)
+        self.guild_del_favor_btn = QPushButton('Del')
+        self.guild_del_favor_btn.setFixedWidth(40)
+        self.guild_del_favor_btn.clicked.connect(self.gfavor_del)
+        self.guild_favorite_load_btn = QPushButton('Reload Favorite')
+        self.guild_favorite_load_btn.setFixedWidth(120)
+        self.guild_favorite_load_btn.clicked.connect(self.gfavor_load)
+        self.gfavor_load()
+        favorLayout.addWidget(self.guild_favorite)
+        favorLayout.addWidget(self.guild_get_favor_btn)
+        favorLayout.addWidget(self.guild_del_favor_btn)
+        favorLayout.addWidget(self.guild_favorite_load_btn)
+
         # put all things together
+
         self.guildLayout.addLayout(guild_1st_row_layout)
         self.guildLayout.addLayout(guild_2nd_row_layout)
-        self.guildLayout.addWidget(self.guild_find_btn)
+        self.guildLayout.addLayout(btnLayout)
         self.guildLayout.addWidget(self.guildTableView)
+        self.guildLayout.addLayout(favorLayout)
+
+    def guild_option_reset(self):
+        self.guild_name_input.setText('')
+        self.guild_world_combox.setCurrentIndex(0)
+        self.guild_level_min_line.setText('')
+        self.guild_level_max_line.setText('')
+        self.guild_account_min_line.setText('')
+        self.guild_account_max_line.setText('')
 
     def send_guild_query_to_thread(self):
         self.guild_find_btn.setEnabled(False)
+        self.guildSearchdTag = len(self.guildHistory)
         url = 'http://census.daybreakgames.com/s:fyang/get/eq2/guild?'
         cmd = ''
         if self.guild_name_input.text() is not '':
@@ -125,7 +186,11 @@ class EQ2DB_MainW(QWidget):
         self.qy.rst_sent_guild_to_main.connect(self.guild_result_received)
         self.qy.start()
 
-    def guild_result_received(self, rst):
+    def guild_result_received(self, rst, apd=True):
+        if apd:
+            self.guildHistory.append(rst)
+        if self.guildSearchdTag:
+            self.guild_previous_btn.setEnabled(True)
         try:
             rows = len(rst['guild_list'])
             # display the result into table
@@ -144,7 +209,7 @@ class EQ2DB_MainW(QWidget):
                 nm.setTextAlignment(Qt.AlignCenter)
                 nm.setData(1000, 'guild')
                 nm.setData(1001, t['id'])
-                nm.setText(t['name'])
+                nm.setText(str(t['name']))
                 nm.setToolTip('Click for guild\'s detail.')
                 world = QTableWidgetItem(t['world'])
                 world.setTextAlignment(Qt.AlignCenter)
@@ -156,7 +221,7 @@ class EQ2DB_MainW(QWidget):
                 self.guildTableView.setItem(r, 1, world)
                 self.guildTableView.setItem(r, 2, lv)
                 self.guildTableView.setItem(r, 3, acc)
-            self.guildTableView.resizeColumnsToContents()
+            # self.guildTableView.resizeColumnsToContents()
         except BaseException as err:
             QMessageBox().critical(self, 'Result Error', 'Try again.\n{}'.format(err))
             self.guild_find_btn.setEnabled(True)
@@ -164,9 +229,60 @@ class EQ2DB_MainW(QWidget):
         self.guild_find_btn.setEnabled(True)
 
     def display_selected_guild(self, guild):
-        if guild.data(1000) == 'guild':
+        if isinstance(guild, int):
+            guild_win = eq2s_guild.Eq2db_guildw(guild, self)
+            guild_win.show()
+        elif guild.data(1000) == 'guild' and None is not guild.data(1001):
             guild_win = eq2s_guild.Eq2db_guildw(guild.data(1001), self)
             guild_win.show()
+
+    def guild_favorite_selected(self, index):
+        try:
+            self.display_selected_guild(self.gfavor[index]['id'])
+        except IndexError:
+            return
+
+    def gfavor_load(self):
+        self.guild_favorite.clear()
+        self.gfavor.clear()
+        try:
+            with open('guild_favor.json', 'r') as f:
+                self.gfavor.extend(json.loads(f.read()))
+        except FileNotFoundError:
+            with open('guild_favor.json', 'w') as f:
+                pass
+        except BaseException:
+            return
+        for n, each in enumerate(self.gfavor):
+            try:
+                self.guild_favorite.addItem('({}) Lv.{}     {}     [{}]'
+                                            .format(n+1, each['level'], each['name'], each['server']))
+            except TypeError:
+                continue
+
+    def gfavor_del(self):
+        index = self.guild_favorite.currentIndex()
+        try:
+            self.gfavor.pop(index)
+        except IndexError:
+            return
+        with open('guild_favor.json', 'w') as f:
+            f.write(json.dumps(self.gfavor))
+        self.gfavor_load()
+
+    def guildPrevious(self):
+        self.guildSearchdTag -= 1
+        self.guild_next_btn.setEnabled(True)
+        if self.guildSearchdTag == 0:
+            self.guild_previous_btn.setEnabled(False)
+        self.guild_result_received(self.guildHistory[self.guildSearchdTag], apd=False)
+
+    def guildNext(self):
+        self.guildSearchdTag += 1
+        self.guild_previous_btn.setEnabled(True)
+        if self.guildSearchdTag == len(self.guildHistory) - 1:
+            self.guild_next_btn.setEnabled(False)
+        self.guild_result_received(self.guildHistory[self.guildSearchdTag], apd=False)
 
     def add_char_tab_content(self):
         self.charWidget = QWidget()
@@ -228,9 +344,26 @@ class EQ2DB_MainW(QWidget):
         char_2nd_row_layout.addWidget(self.char_trade_class_combox)
         char_2nd_row_layout.addWidget(QLabel('Tradeskill Class'))
 
+        btnsLayout = QHBoxLayout()
+        self.char_reset_btn = QPushButton('Reset')
+        self.char_reset_btn.setFixedWidth(50)
+        self.char_reset_btn.clicked.connect(self.char_option_reset)
+        self.char_previous_btn = QPushButton('<< Pre')
+        self.char_previous_btn.setFixedWidth(50)
+        self.char_previous_btn.setEnabled(False)
+        self.char_previous_btn.clicked.connect(self.charPrevious)
+        self.char_next_btn = QPushButton('Next >>')
+        self.char_next_btn.setFixedWidth(50)
+        self.char_next_btn.setEnabled(False)
+        self.char_next_btn.clicked.connect(self.charNext)
         self.char_find_btn = QPushButton(' Find ')
         self.char_find_btn.setFixedWidth(100)
         self.char_find_btn.clicked.connect(self.send_char_query_to_thread)
+        btnsLayout.addSpacing(500)
+        btnsLayout.addWidget(self.char_reset_btn)
+        btnsLayout.addWidget(self.char_previous_btn)
+        btnsLayout.addWidget(self.char_next_btn)
+        btnsLayout.addWidget(self.char_find_btn)
 
         # char table view
         self.charTableView = QTableWidget()
@@ -242,14 +375,45 @@ class EQ2DB_MainW(QWidget):
         self.charTableView.setSelectionBehavior(QTableWidget.SelectRows)
         self.charTableView.setSelectionMode(QTableWidget.SingleSelection)
 
+        # favorite combox
+        favorLayout = QHBoxLayout()
+        self.char_favorite = QComboBox()
+        self.char_get_favor_btn = QPushButton('Get')
+        self.char_get_favor_btn.setFixedWidth(40)
+        self.char_get_favor_btn.clicked.connect(self.char_favorite_selected)
+        self.char_del_favor_btn = QPushButton('Del')
+        self.char_del_favor_btn.setFixedWidth(40)
+        self.char_del_favor_btn.clicked.connect(self.charfavor_del)
+        self.char_favorite_load_btn = QPushButton('Reload Favorite')
+        self.char_favorite_load_btn.setFixedWidth(120)
+        self.char_favorite_load_btn.clicked.connect(self.charfavor_load)
+        self.charfavor_load()
+        favorLayout.addWidget(self.char_favorite)
+        favorLayout.addWidget(self.char_get_favor_btn)
+        favorLayout.addWidget(self.char_del_favor_btn)
+        favorLayout.addWidget(self.char_favorite_load_btn)
+
         # put all things together
+
         self.charLayout.addLayout(char_1st_row_layout)
         self.charLayout.addLayout(char_2nd_row_layout)
-        self.charLayout.addWidget(self.char_find_btn)
+        self.charLayout.addLayout(btnsLayout)
         self.charLayout.addWidget(self.charTableView)
+        self.charLayout.addLayout(favorLayout)
+
+    def char_option_reset(self):
+        self.char_name_input.setText('')
+        self.char_world_combox.setCurrentIndex(0)
+        self.char_class_min_line.setText('')
+        self.char_class_max_line.setText('')
+        self.char_class_combox.setCurrentIndex(0)
+        self.char_trade_class_min_line.setText('')
+        self.char_trade_class_max_line.setText('')
+        self.char_trade_class_combox.setCurrentIndex(0)
 
     def send_char_query_to_thread(self):
         self.char_find_btn.setEnabled(False)
+        self.charSearchTag = len(self.charHistory)
         url = 'http://census.daybreakgames.com/s:fyang/get/eq2/character?'
         cmd = ''
         if self.char_name_input.text() is not '':
@@ -275,7 +439,11 @@ class EQ2DB_MainW(QWidget):
         self.qy.rst_sent_chars_to_main.connect(self.char_result_received)
         self.qy.start()
 
-    def char_result_received(self, rst):
+    def char_result_received(self, rst, apd=True):
+        if apd:
+            self.charHistory.append(rst)
+        if self.charSearchTag:
+            self.char_previous_btn.setEnabled(True)
         try:
             rows = len(rst['character_list'])
             # display the result into table
@@ -332,12 +500,65 @@ class EQ2DB_MainW(QWidget):
         self.char_find_btn.setEnabled(True)
 
     def display_selected_char(self, char):
-        if char.data(1000) == 'name':
+        if isinstance(char, int):
+            char_win = eq2s_char.Eq2db_charw(char, self)
+            char_win.show()
+        elif char.data(1000) == 'name':
             char_win = eq2s_char.Eq2db_charw(char.data(1001), self)
             char_win.show()
         elif char.data(1000) == 'guild':
-            guild_win = eq2s_guild.Eq2db_guildw(char.data(1001), self)
-            guild_win.show()
+            id = char.data(1001)
+            if None is not id:
+                guild_win = eq2s_guild.Eq2db_guildw(char.data(1001), self)
+                guild_win.show()
+                
+    def char_favorite_selected(self, index):
+        try:
+            self.display_selected_char(self.charfavor[index]['id'])
+        except:
+            pass
+
+    def charfavor_load(self):
+        self.char_favorite.clear()
+        self.charfavor.clear()
+        try:
+            with open('char_favor.json', 'r') as f:
+                self.charfavor.extend(json.loads(f.read()))
+        except FileNotFoundError:
+            with open('char_favor.json', 'w') as f:
+                pass
+        except BaseException:
+            return
+        for n, each in enumerate(self.charfavor):
+            try:
+                self.char_favorite.addItem('({}) Lv.{} {}    {}'
+                                            .format(n+1, each['level'], each['class'], each['name']))
+            except TypeError or KeyError:
+                continue
+
+    def charfavor_del(self):
+        index = self.char_favorite.currentIndex()
+        try:
+            self.charfavor.pop(index)
+        except IndexError:
+            return
+        with open('char_favor.json', 'w') as f:
+            f.write(json.dumps(self.charfavor))
+        self.charfavor_load()
+
+    def charPrevious(self):
+        self.charSearchTag -= 1
+        self.char_next_btn.setEnabled(True)
+        if self.charSearchTag == 0:
+            self.char_previous_btn.setEnabled(False)
+        self.char_result_received(self.charHistory[self.charSearchTag], apd=False)
+
+    def charNext(self):
+        self.charSearchTag += 1
+        self.char_previous_btn.setEnabled(True)
+        if self.charSearchTag == len(self.charHistory) - 1:
+            self.char_next_btn.setEnabled(False)
+        self.char_result_received(self.charHistory[self.charSearchTag], apd=False)
 
     def add_item_tab_content(self):
         self.itemWidget = QWidget()
@@ -425,7 +646,6 @@ class EQ2DB_MainW(QWidget):
         # type
         self.item_type_combox = QComboBox()
         self.item_type_combox.setFixedWidth(160)
-        self.item_type_sub_combox = QComboBox()
         for e in sub_options[1].split(','):
             self.item_type_combox.addItem(e.capitalize())
         item_tier_type_layout.addWidget(self.item_type_combox)
@@ -496,10 +716,25 @@ class EQ2DB_MainW(QWidget):
         discoLayout.addSpacing(330)
         # build find button
         find_btn_layout = QHBoxLayout()
+        self.item_reset_btn = QPushButton('Reset')
+        self.item_reset_btn.setFixedWidth(50)
+        self.item_reset_btn.clicked.connect(self.item_option_reset)
+        self.item_previous_btn = QPushButton('<< Pre')
+        self.item_previous_btn.setFixedWidth(50)
+        self.item_previous_btn.setEnabled(False)
+        self.item_previous_btn.clicked.connect(self.itemPrevious)
+        self.item_next_btn = QPushButton('Next >>')
+        self.item_next_btn.setFixedWidth(50)
+        self.item_next_btn.setEnabled(False)
+        self.item_next_btn.clicked.connect(self.itemNext)
         self.item_find_btn = QPushButton('Find')
         self.item_find_btn.clicked.connect(self.send_item_query_to_thread)
-        find_btn_layout.addSpacing(700)
+        find_btn_layout.addSpacing(500)
+        find_btn_layout.addWidget(self.item_reset_btn)
+        find_btn_layout.addWidget(self.item_previous_btn)
+        find_btn_layout.addWidget(self.item_next_btn)
         find_btn_layout.addWidget(self.item_find_btn)
+
         # combine item option pieces together
         item_option_layout.addLayout(item_name_layout)
         item_option_layout.addLayout(allStatusLayout)
@@ -524,11 +759,50 @@ class EQ2DB_MainW(QWidget):
         self.item_result_table.setSortingEnabled(True)
         item_result_layout.addWidget(self.item_result_table)
 
+        # favorite combox
+        favorLayout = QHBoxLayout()
+        self.item_favorite = QComboBox()
+        self.item_get_favor_btn = QPushButton('Get')
+        self.item_get_favor_btn.setFixedWidth(40)
+        self.item_get_favor_btn.clicked.connect(self.item_favorite_selected)
+        self.item_del_favor_btn = QPushButton('Del')
+        self.item_del_favor_btn.setFixedWidth(40)
+        self.item_del_favor_btn.clicked.connect(self.itemfavor_del)
+        self.item_favorite_load_btn = QPushButton('Reload Favorite')
+        self.item_favorite_load_btn.setFixedWidth(120)
+        self.item_favorite_load_btn.clicked.connect(self.itemfavor_load)
+        self.itemfavor_load()
+        favorLayout.addWidget(self.item_favorite)
+        favorLayout.addWidget(self.item_get_favor_btn)
+        favorLayout.addWidget(self.item_del_favor_btn)
+        favorLayout.addWidget(self.item_favorite_load_btn)
+        
+        # putting together
         self.itemlayout.addLayout(item_option_layout)
         self.itemlayout.addLayout(item_result_layout)
+        self.itemlayout.addLayout(favorLayout)
+
+    def item_option_reset(self):
+        self.item_name_input.setText('')
+        self.statusValue.setText('')
+        self.item_level_min_line.setText('')
+        self.item_level_max_line.setText('')
+        self.item_level_require_line_min.setText('')
+        self.item_level_require_line_max.setText('')
+        self.item_tier_combox.setCurrentIndex(0)
+        self.item_type_combox.setCurrentIndex(0)
+        self.classCombox.setCurrentIndex(0)
+        self.slotCombox.setCurrentIndex(0)
+        self.adornCombox.setCurrentIndex(0)
+        self.effectLine.setText('')
+        for each in self.item_flags:
+            each.setChecked(False)
+        self.discoStartDate.setText('')
+        self.discoEndDate.setText('')
 
     def send_item_query_to_thread(self):
         self.item_find_btn.setEnabled(False)
+        self.itemSearchTag = len(self.itemHistory)
         url = 'http://census.daybreakgames.com/s:fyang/get/eq2/item?'
         # logic for making query
         cmd = ''
@@ -557,7 +831,7 @@ class EQ2DB_MainW(QWidget):
         if self.slotCombox.currentText() is not '':
             cmd += '&slot_list.name={}'.format(self.slotCombox.currentText())
         if self.adornCombox.currentText() is not '':
-            cmd += '&adornmentslot_list.color={}'.format(self.adornCombox.currentText())
+            cmd += '&adornmentslot_list.color={}'.format(self.adornCombox.currentText().lower())
         if self.effectLine.text() is not '':
             cmd += '&adornment_list.name=*{}&c:case=false'.format(self.effectLine.text())
         for e in self.item_flags:
@@ -585,7 +859,11 @@ class EQ2DB_MainW(QWidget):
         self.qy.rst_sent_items_to_main.connect(self.item_result_received)
         self.qy.start()
 
-    def item_result_received(self, rst):
+    def item_result_received(self, rst, apd=True):
+        if apd:
+            self.itemHistory.append(rst)
+        if self.itemSearchTag:
+            self.item_previous_btn.setEnabled(True)
         try:
             rows = len(rst['item_list'])
             # display the result into table
@@ -611,7 +889,7 @@ class EQ2DB_MainW(QWidget):
                 nm.setTextAlignment(Qt.AlignCenter)
                 nm.setData(1001, t['id'])
                 nm.setToolTip('Click for detail.')
-                rlv = QTableWidgetItem(t['leveltouse'])
+                rlv = QTableWidgetItem(str(t['leveltouse']))
                 rlv.setTextAlignment(Qt.AlignCenter)
                 tier = QTableWidgetItem(t['tier'])
                 tier.setTextAlignment(Qt.AlignCenter)
@@ -638,9 +916,63 @@ class EQ2DB_MainW(QWidget):
         self.item_find_btn.setEnabled(True)
 
     def display_selected_item(self, item):
-        if item.data(1001) is not None:
+        if isinstance(item, int):
+            item_win = eq2s_item.Eq2db_itemw(item, self)
+            item_win.show()
+        elif item.data(1001) is not None:
             item_win = eq2s_item.Eq2db_itemw(item.data(1001), self)
             item_win.show()
+            
+    def item_favorite_selected(self, index):
+        try:
+            self.display_selected_item(self.itemfavor[index]['id'])
+        except:
+            pass
+
+    def itemfavor_load(self):
+        self.item_favorite.clear()
+        self.itemfavor.clear()
+        try:
+            with open('item_favor.json', 'r') as f:
+                self.itemfavor.extend(json.loads(f.read()))
+        except FileNotFoundError:
+            with open('item_favor.json', 'w') as f:
+                pass
+        except BaseException:
+            return
+        for n, each in enumerate(self.itemfavor):
+            try:
+                self.item_favorite.addItem('({}) {}  ({})  [{}]  {}  {}  '
+                                            .format(n+1, each['name'], each['tier'],
+                                                    each['type'],
+                                                    each['level'], each['slot'].replace('[', '').replace(']', '')
+                                                    .replace('{', '').replace('}', '')))
+            except TypeError:
+                continue
+
+    def itemfavor_del(self):
+        index = self.item_favorite.currentIndex()
+        try:
+            self.itemfavor.pop(index)
+        except IndexError:
+            return
+        with open('item_favor.json', 'w') as f:
+            f.write(json.dumps(self.itemfavor))
+        self.itemfavor_load()
+
+    def itemPrevious(self):
+        self.itemSearchTag -= 1
+        self.item_next_btn.setEnabled(True)
+        if self.itemSearchTag == 0:
+            self.item_previous_btn.setEnabled(False)
+        self.item_result_received(self.itemHistory[self.itemSearchTag], apd=False)
+
+    def itemNext(self):
+        self.itemSearchTag += 1
+        self.item_previous_btn.setEnabled(True)
+        if self.itemSearchTag == len(self.itemHistory) - 1:
+            self.item_next_btn.setEnabled(False)
+        self.item_result_received(self.itemHistory[self.itemSearchTag], apd=False)
 
     def build_status_queries(self):
         query = self.statusLine.text()
@@ -679,11 +1011,11 @@ class EQ2DB_MainW(QWidget):
 
     def adjust_win_size(self, n_tab):
         if n_tab == 0:
-            self.setFixedSize(750, 750)
+            self.setFixedSize(750, 800)
         elif n_tab == 1:
-            self.setFixedSize(750, 400)
+            self.setFixedSize(750, 450)
         elif n_tab == 2:
-            self.setFixedSize(600, 400)
+            self.setFixedSize(750, 450)
 
     def author_piece_sets(self):
         bLayout = QHBoxLayout()

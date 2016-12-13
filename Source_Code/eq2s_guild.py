@@ -1,6 +1,8 @@
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox,\
+    QHBoxLayout
 from PyQt5.QtCore import Qt
 from datetime import datetime
+import json
 import eq2s_quary, eq2s_char
 
 
@@ -8,31 +10,45 @@ class Eq2db_guildw(QDialog):
     def __init__(self, gid, parent=None):
         super(Eq2db_guildw, self).__init__(parent)
         guildLayoutAll = QVBoxLayout()
-        self.setFixedSize(480, 400)
+        self.id = gid
+        self.setFixedSize(800, 400)
         self.guild_info_label = QLabel()
         self.guild_members_table = QTableWidget()
         self.guild_members_table.setColumnCount(5)
         self.guild_members_table.setEditTriggers(QTableWidget.NoEditTriggers)
         self.guild_members_table.setSelectionMode(QTableWidget.SingleSelection)
         self.guild_members_table.setHorizontalHeaderLabels(('Rank', 'Name', 'A_Class', 'Lv.', 'Join'))
+        self.guild_members_table.setColumnWidth(0, 110)
+        self.guild_members_table.setColumnWidth(1, 260)
+        self.guild_members_table.setColumnWidth(2, 100)
+        self.guild_members_table.setColumnWidth(3, 60)
+        self.guild_members_table.setColumnWidth(4, 200)
         self.guild_members_table.itemClicked.connect(self.whenCharSelected)
 
+        topLayout = QHBoxLayout()
         self.refreshBtn = QPushButton('Refresh')
         self.refreshBtn.setFixedWidth(100)
         self.refreshBtn.clicked.connect(self.sendGuildQueryToThread)
+        self.favorBtn = QPushButton('Favor')
+        self.favorBtn.setFixedWidth(100)
+        self.favorBtn.clicked.connect(self.saveToFavor)
+        self.favorBtn.setEnabled(False)
+        topLayout.addWidget(self.refreshBtn)
+        topLayout.addWidget(self.favorBtn)
+        topLayout.addSpacing(500)
 
-        guildLayoutAll.addWidget(self.refreshBtn)
+        guildLayoutAll.addLayout(topLayout)
         guildLayoutAll.addWidget(self.guild_info_label)
         guildLayoutAll.addWidget(self.guild_members_table)
 
         self.setLayout(guildLayoutAll)
 
-        self.sendGuildQueryToThread(gid)
+        self.sendGuildQueryToThread()
 
-    def sendGuildQueryToThread(self, gid):
+    def sendGuildQueryToThread(self):
         self.refreshBtn.setEnabled(False)
         url = 'http://census.daybreakgames.com/s:fyang/get/eq2/guild'
-        query1 = '?id={}'.format(gid)
+        query1 = '?id={}'.format(self.id)
         query2 = '&c:resolve=members(name,type,guild)'
         self.qy = eq2s_quary.Queries(url + query1 + query2, 'guild_detail')
         self.qy.rst_sent_guild_detail.connect(self.whenGuildInfoReceived)
@@ -48,16 +64,22 @@ class Eq2db_guildw(QDialog):
             self.refreshBtn.setEnabled(True)
             return
         textInfo = '<font size="4">'
-
-        textInfo += 'World : {}<br>'.format(self.guildDitail['world'])
-        textInfo += 'Date Formed : {}<br>'.format(datetime.fromtimestamp(self.guildDitail['dateformed']).isoformat())
-        textInfo += 'Accounts : {}<br>'.format(self.guildDitail['accounts'])
-        textInfo += 'Guild Lv : {}<br>'.format(self.guildDitail['level'])
-        textInfo += 'Guild XP : {}<br>'.format(self.guildDitail['guildxp'])
+        try:
+            textInfo += 'World : {}<br>'.format(self.guildDitail['world'])
+            textInfo += 'Date Formed : {}<br>'.format(datetime.fromtimestamp(self.guildDitail['dateformed']).isoformat())
+            textInfo += 'Accounts : {}<br>'.format(self.guildDitail['accounts'])
+        except KeyError:
+            pass
+        try:
+            textInfo += 'Guild Lv : {}<br>'.format(self.guildDitail['level'])
+            textInfo += 'Guild XP : {}<br>'.format(self.guildDitail['guildxp'])
+        except KeyError:
+            pass
 
         textInfo += '</font>'
         self.guild_info_label.setText(textInfo)
         self.refreshBtn.setEnabled(True)
+        self.favorBtn.setEnabled(True)
         self.displayMembers()
 
     def displayMembers(self):
@@ -109,10 +131,23 @@ class Eq2db_guildw(QDialog):
                 except:
                     pass
                 r += 1
-        self.guild_members_table.resizeColumnsToContents()
+        # self.guild_members_table.resizeColumnsToContents()
 
     def whenCharSelected(self, item):
         if item.data(1000):
             char_win = eq2s_char.Eq2db_charw(item.data(1000), self.parent())
             char_win.show()
+
+    def saveToFavor(self):
+        self.favorBtn.setEnabled(False)
+        cur = {'name': self.guildDitail['name'], 'server': self.guildDitail['world'],
+                           'id': self.guildDitail['id'], 'level': self.guildDitail['level']}
+        try:
+            with open('guild_favor.json', 'r') as f:
+                tp = json.loads(f.read())
+                tp.append(cur)
+        except:
+            tp = [cur]
+        with open('guild_favor.json', 'w') as f:
+            f.write(json.dumps(tp))
 

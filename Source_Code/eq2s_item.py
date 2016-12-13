@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QTextBrow
 from PyQt5.QtCore import Qt
 from PyQt5.Qt import QIcon
 from datetime import datetime
+import json
 import eq2s_func, eq2s_quary, eq2s_char
 
 
@@ -66,9 +67,19 @@ class Eq2db_itemw(QDialog):
         # self.item_detail_label.setAutoFillBackground(True)
         # set text auto wrap
         # self.item_detail_label.setWordWrap(True)
+
+        topLayout = QHBoxLayout()
+        self.favorBtn = QPushButton('Favor')
+        self.favorBtn.setFixedWidth(100)
+        self.favorBtn.clicked.connect(self.saveToFavor)
+        self.favorBtn.setEnabled(False)
+        topLayout.addWidget(self.favorBtn)
+
         upper_layout = QHBoxLayout()
         upper_layout.addWidget(self.item_name_label)
         upper_layout.addWidget(self.item_icon_label)
+
+        layout.addLayout(topLayout)
         layout.addLayout(upper_layout)
         layout.addWidget(self.item_detail_label)
         layout.addLayout(self.btn_layout)
@@ -123,6 +134,7 @@ class Eq2db_itemw(QDialog):
         if 'typeinfo' in self.item_detail.keys():
             if 'item_list' in self.item_detail['typeinfo'].keys():
                 self.contains_btn.setHidden(False)
+        self.favorBtn.setEnabled(True)
 
     def send_sets_query_to_thread(self):
         self.sets_btn.setEnabled(False)
@@ -201,6 +213,23 @@ class Eq2db_itemw(QDialog):
         char_win = eq2s_char.Eq2db_charw(char.data(1001), self.parent())
         char_win.show()
 
+    def saveToFavor(self):
+        self.favorBtn.setEnabled(False)
+        try:
+            cur = {'name': self.item_detail['displayname'], 'id': self.item_detail['id'],
+                   'level': self.item_detail['leveltouse'], 'slot': str(self.item_detail['slot_list']),
+                   'type': self.item_detail['type'], 'tier': self.item_detail['tier']}
+        except KeyError as err:
+            QMessageBox().critical(self, 'Favor Error', 'Saving favorite failed:\n{}'.format(err))
+            return
+        try:
+            with open('item_favor.json', 'r') as f:
+                tp = json.loads(f.read())
+                tp.append(cur)
+        except:
+            tp = [cur]
+        with open('item_favor.json', 'w') as f:
+            f.write(json.dumps(tp))
 
 class sets_table(QDialog):
     def __init__(self, sets_obj, parent=None):

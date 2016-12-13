@@ -705,11 +705,16 @@ class CookCharText:
                 detail += 'Resolve :   {}<br>'.format(rawObj['stats']['combat']['resolve'])
             if 'fervor' in rawObj['stats']['combat'].keys():
                 detail += 'Fervor :   {}<br>'.format(rawObj['stats']['combat']['fervor'])
-            detail += 'Ability Mod :   {}<br>'.format(rawObj['stats']['combat']['abilitymod'])
-            detail += 'Reuse Speed :   {}<br>'.format(rawObj['stats']['ability']['spelltimereusepct'])
-            detail += 'Recovery Speed :   {}<br>'.format(rawObj['stats']['ability']['spelltimerecoverypct'])
-            detail += 'Casting Speed :   {}<br>'.format(rawObj['stats']['ability']['spelltimecastpct'])
-            detail += 'Hate Mod :   {}<br>'.format(rawObj['stats']['combat']['hategainmod'])
+            if 'abilitymod' in rawObj['stats']['combat'].keys():
+                detail += 'Ability Mod :   {}<br>'.format(rawObj['stats']['combat']['abilitymod'])
+            if 'spelltimereusepct' in rawObj['stats']['combat'].keys():
+                detail += 'Reuse Speed :   {}<br>'.format(rawObj['stats']['ability']['spelltimereusepct'])
+            if 'spelltimerecoverypct' in rawObj['stats']['combat'].keys():
+                detail += 'Recovery Speed :   {}<br>'.format(rawObj['stats']['ability']['spelltimerecoverypct'])
+            if 'spelltimecastpct' in rawObj['stats']['combat'].keys():
+                detail += 'Casting Speed :   {}<br>'.format(rawObj['stats']['ability']['spelltimecastpct'])
+            if 'hategainmod' in rawObj['stats']['combat'].keys():
+                detail += 'Hate Mod :   {}<br>'.format(rawObj['stats']['combat']['hategainmod'])
             if 'toughness' in rawObj['stats']['combat'].keys():
                 detail += 'Toughness :   {}<br>'.format(rawObj['stats']['combat']['toughness'])
             detail += '<br>'
@@ -720,7 +725,8 @@ class CookCharText:
             detail += 'AoE Attack :   {}<br>'.format(rawObj['stats']['combat']['aeautoattackchance'])
             detail += 'Strikethrough :   {}<br>'.format(rawObj['stats']['combat']['strikethrough'])
             detail += 'Accuracy :   {}<br>'.format(rawObj['stats']['combat']['accuracy'])
-            detail += 'Flurry :   {}<br>'.format(rawObj['stats']['combat']['flurry'])
+            if 'flurry' in rawObj['stats']['combat'].keys():
+                detail += 'Flurry :   {}<br>'.format(rawObj['stats']['combat']['flurry'])
             if 'weapondamagebonus' in rawObj['stats']['combat'].keys():
                 detail += 'Weapon Damage Bonus:   {}<br>'.format(rawObj['stats']['combat']['weapondamagebonus'])
             if 'spellweapondamagebonus' in rawObj['stats']['combat'].keys():
