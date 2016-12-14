@@ -1,0 +1,5 @@
+,ETHEREAL,FABLED,HANDCRAFTED,LEGENDARY,MASTERCRAFTED,MASTERCRAFTEDFABLED,MASTERCRAFTEDLEGENDARY,MASTERCRAFTEDMYTHICAL,MYTHICAL,TREASURED,UNCOMMON
+,item *, - adornment, - coinpurse, - equipmentinfuser, - expendable, - houseitem, - itemcontainer, - itempattern,ammo,armor,container,food,recipescroll,shield,spellscroll,weapon
+,Guardian,Berserker,Paladin,Shadowknight,Monk,Bruiser,Templar,Inquisitor,Warden,Fury,Mystic,Defiler,Channeler,Wizard,Warlock,Illusionist,Coercer,Conjuror,Necromancer,Ranger,Assassin,Swashbuckler,Troubador,Dirge,Beastlord
+harvestable,relic,heirloom,indestructible,refined,novalue,nodestroy,attunable,lore-equip,notrade,ornate,lore,nozone,norent,prestige,notrasmute,stacklore,artiface
+,Chest,Head,Secondary,Forearms,Cloak,Hands,Charm,Food,Primary,Ear,Wrist,Finger,Feet,Ranged,Neck,Drink,Waist,Shoulders,Legs
