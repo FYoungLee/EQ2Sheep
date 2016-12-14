@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QWidget, QTabWidget, QHBoxLayout, QVBoxLayout, QLabel, QComboBox, \
-    QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QMessageBox, QCheckBox, QGridLayout, QDialog
+    QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QMessageBox, QCheckBox, QGridLayout, QDialog, QHeaderView
 from PyQt5.QtCore import Qt
 from PyQt5.Qt import QIcon, QSize, QDesktopServices, QUrl
 from datetime import datetime
@@ -118,15 +118,12 @@ class EQ2DB_MainW(QWidget):
         self.guildTableView = QTableWidget()
         self.guildTableView.setColumnCount(4)
         self.guildTableView.setHorizontalHeaderLabels(['Name', 'Server', 'Lv', 'Accounts'])
-        self.guildTableView.setColumnWidth(0, 355)
-        self.guildTableView.setColumnWidth(1, 150)
-        self.guildTableView.setColumnWidth(2, 70)
-        self.guildTableView.setColumnWidth(3, 70)
         self.guildTableView.itemClicked.connect(self.display_selected_guild)
         self.guildTableView.setEditTriggers(QTableWidget.NoEditTriggers)
         self.guildTableView.setSortingEnabled(True)
         self.guildTableView.setSelectionBehavior(QTableWidget.SelectRows)
         self.guildTableView.setSelectionMode(QTableWidget.SingleSelection)
+        self.guildTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # favorite combox
         favorLayout = QHBoxLayout()
@@ -221,7 +218,9 @@ class EQ2DB_MainW(QWidget):
                 self.guildTableView.setItem(r, 1, world)
                 self.guildTableView.setItem(r, 2, lv)
                 self.guildTableView.setItem(r, 3, acc)
-            # self.guildTableView.resizeColumnsToContents()
+            self.guildTableView.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+            self.guildTableView.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+            self.guildTableView.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
         except BaseException as err:
             QMessageBox().critical(self, 'Result Error', 'Try again.\n{}'.format(err))
             self.guild_find_btn.setEnabled(True)
@@ -374,6 +373,7 @@ class EQ2DB_MainW(QWidget):
         self.charTableView.setSortingEnabled(True)
         self.charTableView.setSelectionBehavior(QTableWidget.SelectRows)
         self.charTableView.setSelectionMode(QTableWidget.SingleSelection)
+        self.charTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # favorite combox
         favorLayout = QHBoxLayout()
@@ -492,7 +492,11 @@ class EQ2DB_MainW(QWidget):
                 self.charTableView.setItem(r, 3, tscls)
                 self.charTableView.setItem(r, 4, cls_ts_lv)
                 self.charTableView.setItem(r, 5, gnm)
-            self.charTableView.resizeColumnsToContents()
+            self.charTableView.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+            self.charTableView.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+            self.charTableView.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+            self.charTableView.horizontalHeader().setSectionResizeMode(4, QHeaderView.ResizeToContents)
+            self.charTableView.horizontalHeader().setSectionResizeMode(5, QHeaderView.ResizeToContents)
         except BaseException as err:
             QMessageBox().critical(self, 'Result Error', 'Try again.\n{}'.format(err))
             self.char_find_btn.setEnabled(True)
@@ -757,6 +761,7 @@ class EQ2DB_MainW(QWidget):
         self.item_result_table.setSelectionBehavior(QTableWidget.SelectRows)
         self.item_result_table.setSelectionMode(QTableWidget.SingleSelection)
         self.item_result_table.setSortingEnabled(True)
+        self.item_result_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         item_result_layout.addWidget(self.item_result_table)
 
         # favorite combox
@@ -908,7 +913,9 @@ class EQ2DB_MainW(QWidget):
                 self.item_result_table.setItem(r, 3, tier)
                 self.item_result_table.setItem(r, 4, tp)
                 self.item_result_table.setItem(r, 5, slot)
-            self.item_result_table.resizeColumnsToContents()
+            self.item_result_table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+            self.item_result_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+            self.item_result_table.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
         except BaseException as err:
             QMessageBox().critical(self, 'Result Error', 'Try again.\n{}'.format(err))
             self.item_find_btn.setEnabled(True)
@@ -1030,8 +1037,7 @@ class EQ2DB_MainW(QWidget):
         donateBtn2.setFixedSize(50,30)
         donateBtn2.clicked.connect(self.whenAlipaylDonateClicked)
         author_Label = QLabel()
-        author_text = 'Author: Fyoung    Email: lixleon@foxmail.com    ' \
-                      'QQ: 896478    Github: https://github.com/FYoungLee/EQ2Sheep'
+        author_text = 'Author: Fyoung  Email: lixleon@foxmail.com  Github: https://github.com/FYoungLee/EQ2Sheep'
         author_Label.setFixedHeight(30)
         author_Label.setText(author_text)
         bLayout.addWidget(author_Label)

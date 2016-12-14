@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox,\
-    QHBoxLayout
+    QHBoxLayout, QHeaderView
 from PyQt5.QtCore import Qt
 from datetime import datetime
 import json
@@ -18,11 +18,7 @@ class Eq2db_guildw(QDialog):
         self.guild_members_table.setEditTriggers(QTableWidget.NoEditTriggers)
         self.guild_members_table.setSelectionMode(QTableWidget.SingleSelection)
         self.guild_members_table.setHorizontalHeaderLabels(('Rank', 'Name', 'A_Class', 'Lv.', 'Join'))
-        self.guild_members_table.setColumnWidth(0, 110)
-        self.guild_members_table.setColumnWidth(1, 260)
-        self.guild_members_table.setColumnWidth(2, 100)
-        self.guild_members_table.setColumnWidth(3, 60)
-        self.guild_members_table.setColumnWidth(4, 200)
+        self.guild_members_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.guild_members_table.itemClicked.connect(self.whenCharSelected)
 
         topLayout = QHBoxLayout()
@@ -131,6 +127,10 @@ class Eq2db_guildw(QDialog):
                 except:
                     pass
                 r += 1
+        self.guild_members_table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        self.guild_members_table.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+        self.guild_members_table.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+        self.guild_members_table.horizontalHeader().setSectionResizeMode(4, QHeaderView.ResizeToContents)
         # self.guild_members_table.resizeColumnsToContents()
 
     def whenCharSelected(self, item):

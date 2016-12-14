@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QTextBrowser, QPushButton, QTableWidget, QLabel,\
-    QTableWidgetItem, QMessageBox
+    QTableWidgetItem, QMessageBox, QHeaderView
 from PyQt5.QtCore import Qt
 from PyQt5.Qt import QIcon, QSize
 from datetime import datetime
@@ -304,8 +304,8 @@ class Eq2db_charw(QDialog):
 class Eq2db_char_spellsw(QDialog):
     def __init__(self, raw_spells, char_name, parent=None):
         super(Eq2db_char_spellsw, self).__init__(parent)
-        self.setWindowTitle(char_name)
-        self.setFixedSize(560, 500)
+        self.setWindowTitle('{} Spells'.format(char_name))
+        self.setFixedSize(800, 500)
         splLayout = QHBoxLayout()
         self.spellsTable = QTableWidget()
         self.spellsTable.setColumnCount(5)
@@ -313,6 +313,8 @@ class Eq2db_char_spellsw(QDialog):
         self.spellsTable.setEditTriggers(QTableWidget.NoEditTriggers)
         self.spellsTable.setSelectionBehavior(QTableWidget.SelectRows)
         self.spellsTable.setSelectionMode(QTableWidget.SingleSelection)
+        self.spellsTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
         splLayout.addWidget(self.spellsTable)
         self.setLayout(splLayout)
 
@@ -373,14 +375,17 @@ class Eq2db_char_spellsw(QDialog):
                 gbitem.setTextAlignment(Qt.AlignCenter)
                 self.spellsTable.setItem(r, 4, gbitem)
                 r += 1
-        self.spellsTable.resizeColumnsToContents()
+        self.spellsTable.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        self.spellsTable.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+        self.spellsTable.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+        self.spellsTable.horizontalHeader().setSectionResizeMode(4, QHeaderView.ResizeToContents)
 
 
 class Eq2db_char_achievew(QDialog):
     def __init__(self, raw_achs, char_name, parent=None):
         super(Eq2db_char_achievew, self).__init__(parent)
-        self.setWindowTitle(char_name)
-        self.setFixedSize(640, 500)
+        self.setWindowTitle('{} Achievements'.format(char_name))
+        self.setFixedSize(700, 500)
         achLayout = QVBoxLayout()
         achLabel = QLabel()
         labeltxt = 'Total Points: {}<br>Total Counts: {}<br>Completed: {}<br>Points: {}<br>'.format(
@@ -389,11 +394,13 @@ class Eq2db_char_achievew(QDialog):
         achLabel.setText(labeltxt)
         self.achTable = QTableWidget()
         self.achTable.setColumnCount(5)
-        self.achTable.setHorizontalHeaderLabels(('Completed', 'Name', 'Points', 'Type', 'Category'))
+        self.achTable.setHorizontalHeaderLabels(('Completed', 'Name', 'Pts', 'Type', 'Category'))
         self.achTable.setEditTriggers(QTableWidget.NoEditTriggers)
         self.achTable.setSelectionBehavior(QTableWidget.SelectRows)
         self.achTable.setSelectionMode(QTableWidget.SingleSelection)
         self.achTable.setRowCount(len(raw_achs['achievement_list']))
+        self.achTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
         achLayout.addWidget(achLabel)
         achLayout.addWidget(self.achTable)
         self.setLayout(achLayout)
@@ -451,9 +458,10 @@ class Eq2db_char_achievew(QDialog):
             except KeyError:
                 pass
             r += 1
-
-        self.achTable.resizeColumnsToContents()
-
+        self.achTable.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        self.achTable.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+        self.achTable.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+        self.achTable.horizontalHeader().setSectionResizeMode(4, QHeaderView.ResizeToContents)
 
 class Eq2db_char_collection(QDialog):
     def __init__(self, col, parent=None):
