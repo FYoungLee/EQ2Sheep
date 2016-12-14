@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="246b2fab-4a42-4dda-af94-df3130f741dc" name="Default" comment="fixed some crushing, added screenshot">
+    <list default="true" id="246b2fab-4a42-4dda-af94-df3130f741dc" name="Default" comment="adjust Tables layout">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/char_favor.json" afterPath="$PROJECT_DIR$/char_favor.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_char.py" afterPath="$PROJECT_DIR$/eq2s_char.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_guild.py" afterPath="$PROJECT_DIR$/eq2s_guild.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_main.py" afterPath="$PROJECT_DIR$/eq2s_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_quary.py" afterPath="$PROJECT_DIR$/eq2s_quary.py" />
     </list>
     <ignored path="EQ2Sheep.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +24,14 @@
     <favorites_list name="EQ2Sheep" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="eq2s_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eq2s_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+            <state relative-caret-position="201">
+              <caret line="890" column="72" selection-start-line="890" selection-start-column="16" selection-end-line="890" selection-end-column="72" />
               <folding>
+                <element signature="e#0#213#0" expanded="true" />
                 <element signature="e#480#1725#0" expanded="false" />
                 <element signature="e#530#555#0" expanded="false" />
                 <element signature="e#1772#1929#0" expanded="false" />
@@ -54,6 +54,7 @@
                 <element signature="e#11749#11998#0" expanded="false" />
                 <element signature="e#12033#12307#0" expanded="false" />
                 <element signature="e#12353#12505#0" expanded="false" />
+                <element signature="e#12549#17928#0" expanded="false" />
                 <element signature="e#13290#13299#0" expanded="false" />
                 <element signature="e#17971#18351#0" expanded="false" />
                 <element signature="e#18402#20006#0" expanded="false" />
@@ -65,7 +66,6 @@
                 <element signature="e#21817#22012#0" expanded="false" />
                 <element signature="e#22968#23109#0" expanded="false" />
                 <element signature="e#23206#23665#0" expanded="false" />
-                <element signature="e#23244#23316#0" expanded="false" />
                 <element signature="e#23369#23452#0" expanded="false" />
                 <element signature="e#23506#23665#0" expanded="false" />
                 <element signature="e#23574#23665#0" expanded="false" />
@@ -92,7 +92,6 @@
                 <element signature="e#38612#38983#0" expanded="false" />
                 <element signature="e#38633#38783#0" expanded="false" />
                 <element signature="e#38834#38983#0" expanded="false" />
-                <element signature="e#39286#41982#0" expanded="false" />
                 <element signature="e#40890#40965#0" expanded="false" />
                 <element signature="e#42035#42283#0" expanded="false" />
                 <element signature="e#42073#42145#0" expanded="false" />
@@ -120,7 +119,6 @@
                 <element signature="e#46784#46825#0" expanded="false" />
                 <element signature="e#46857#47195#0" expanded="false" />
                 <element signature="e#46898#47195#0" expanded="false" />
-                <marker date="1481690031827" expanded="false" signature="0:404" ph="import ..." />
               </folding>
             </state>
           </provider>
@@ -129,7 +127,7 @@
       <file leaf-file-name="eq2s_guild.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eq2s_guild.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="540">
               <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
               <folding>
                 <element signature="e#0#145#0" expanded="true" />
@@ -142,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -153,10 +151,23 @@
       <file leaf-file-name="eq2s_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eq2s_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1130">
-              <caret line="759" column="41" selection-start-line="759" selection-start-column="41" selection-end-line="759" selection-end-column="41" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eq2s_quary.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eq2s_quary.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+                <element signature="e#772#1900#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -165,62 +176,90 @@
       <file leaf-file-name="eq2s_char.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eq2s_char.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="383" column="35" selection-start-line="383" selection-start-column="35" selection-end-line="383" selection-end-column="35" />
+            <state relative-caret-position="341">
+              <caret line="490" column="0" selection-start-line="490" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
               <folding>
-                <element signature="e#0#159#0" expanded="true" />
-                <element signature="e#360#13876#0" expanded="false" />
-                <element signature="e#410#4686#0" expanded="false" />
-                <element signature="e#1503#1616#0" expanded="false" />
-                <element signature="e#2587#2703#0" expanded="false" />
-                <element signature="e#4733#5099#0" expanded="false" />
-                <element signature="e#5153#6285#0" expanded="false" />
-                <element signature="e#5170#5482#0" expanded="false" />
-                <element signature="e#5333#5443#0" expanded="false" />
-                <element signature="e#5534#5700#0" expanded="false" />
-                <element signature="e#5869#6059#0" expanded="false" />
-                <element signature="e#6331#6606#0" expanded="false" />
-                <element signature="e#6459#6606#0" expanded="false" />
-                <element signature="e#6501#6606#0" expanded="false" />
-                <element signature="e#6670#7789#0" expanded="false" />
-                <element signature="e#6743#7747#0" expanded="false" />
-                <element signature="e#7496#7597#0" expanded="false" />
-                <element signature="e#7644#7747#0" expanded="false" />
-                <element signature="e#7847#8045#0" expanded="false" />
-                <element signature="e#8087#8459#0" expanded="false" />
-                <element signature="e#8205#8350#0" expanded="false" />
-                <element signature="e#8504#8864#0" expanded="false" />
-                <element signature="e#8911#9286#0" expanded="false" />
-                <element signature="e#9331#9438#0" expanded="false" />
-                <element signature="e#9484#10554#0" expanded="false" />
-                <element signature="e#9639#10132#0" expanded="false" />
-                <element signature="e#9733#10132#0" expanded="false" />
-                <element signature="e#9806#10132#0" expanded="false" />
-                <element signature="e#9859#10132#0" expanded="false" />
-                <element signature="e#9859#9909#0" expanded="false" />
-                <element signature="e#10166#10554#0" expanded="false" />
-                <element signature="e#10609#12229#0" expanded="false" />
-                <element signature="e#10680#10886#0" expanded="false" />
-                <element signature="e#10937#12229#0" expanded="false" />
-                <element signature="e#11122#11758#0" expanded="false" />
-                <element signature="e#11165#11429#0" expanded="false" />
-                <element signature="e#11491#11758#0" expanded="false" />
-                <element signature="e#11810#12229#0" expanded="false" />
-                <element signature="e#12281#12704#0" expanded="false" />
-                <element signature="e#12407#12560#0" expanded="false" />
-                <element signature="e#12763#13191#0" expanded="false" />
-                <element signature="e#12891#13046#0" expanded="false" />
-                <element signature="e#13228#13876#0" expanded="false" />
-                <element signature="e#13285#13465#0" expanded="false" />
-                <element signature="e#13291#13465#0" expanded="false" />
-                <element signature="e#13510#13615#0" expanded="false" />
-                <element signature="e#13641#13753#0" expanded="false" />
-                <element signature="e#13697#13753#0" expanded="false" />
-                <element signature="e#16417#16573#0" expanded="false" />
-                <element signature="e#17780#21600#0" expanded="false" />
-                <element signature="e#19055#21600#0" expanded="false" />
-                <element signature="e#19140#19338#0" expanded="false" />
-                <element signature="e#19188#19286#0" expanded="false" />
+                <element signature="e#0#189#0" expanded="true" />
+                <element signature="e#1541#1654#0" expanded="false" />
+                <element signature="e#2625#2741#0" expanded="false" />
+                <element signature="e#5479#5791#0" expanded="false" />
+                <element signature="e#5642#5752#0" expanded="false" />
+                <element signature="e#5843#6009#0" expanded="false" />
+                <element signature="e#6178#6368#0" expanded="false" />
+                <element signature="e#6684#6959#0" expanded="false" />
+                <element signature="e#6812#6959#0" expanded="false" />
+                <element signature="e#6854#6959#0" expanded="false" />
+                <element signature="e#7023#8142#0" expanded="false" />
+                <element signature="e#7096#8100#0" expanded="false" />
+                <element signature="e#7849#7950#0" expanded="false" />
+                <element signature="e#7997#8100#0" expanded="false" />
+                <element signature="e#8200#8398#0" expanded="false" />
+                <element signature="e#8440#8812#0" expanded="false" />
+                <element signature="e#8558#8703#0" expanded="false" />
+                <element signature="e#8857#9217#0" expanded="false" />
+                <element signature="e#10013#11083#0" expanded="false" />
+                <element signature="e#10168#10661#0" expanded="false" />
+                <element signature="e#10262#10661#0" expanded="false" />
+                <element signature="e#10335#10661#0" expanded="false" />
+                <element signature="e#10388#10661#0" expanded="false" />
+                <element signature="e#10388#10438#0" expanded="false" />
+                <element signature="e#10695#11083#0" expanded="false" />
+                <element signature="e#11138#12758#0" expanded="false" />
+                <element signature="e#11209#11415#0" expanded="false" />
+                <element signature="e#11466#12758#0" expanded="false" />
+                <element signature="e#11651#12287#0" expanded="false" />
+                <element signature="e#11694#11958#0" expanded="false" />
+                <element signature="e#12020#12287#0" expanded="false" />
+                <element signature="e#12339#12758#0" expanded="false" />
+                <element signature="e#12810#13233#0" expanded="false" />
+                <element signature="e#12936#13089#0" expanded="false" />
+                <element signature="e#13292#13720#0" expanded="false" />
+                <element signature="e#13420#13575#0" expanded="false" />
+                <element signature="e#13757#14405#0" expanded="false" />
+                <element signature="e#13814#13994#0" expanded="false" />
+                <element signature="e#13820#13994#0" expanded="false" />
+                <element signature="e#14039#14144#0" expanded="false" />
+                <element signature="e#14170#14282#0" expanded="false" />
+                <element signature="e#14226#14282#0" expanded="false" />
+                <element signature="e#14447#18266#0" expanded="false" />
+                <element signature="e#16946#17102#0" expanded="false" />
+                <element signature="e#18309#22129#0" expanded="false" />
+                <element signature="e#19584#22129#0" expanded="false" />
+                <element signature="e#19669#19867#0" expanded="false" />
+                <element signature="e#19717#19815#0" expanded="false" />
+                <element signature="e#23382#24657#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-695">
+              <caret line="967" column="26" selection-start-line="967" selection-start-column="26" selection-end-line="967" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eq2s_item.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eq2s_item.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <element signature="e#370#3955#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -229,9 +268,11 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="85" selection-start-line="1" selection-start-column="85" selection-end-line="1" selection-end-column="98" />
-              <folding />
+            <state relative-caret-position="300">
+              <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#213#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -254,18 +295,19 @@
         <option value="$PROJECT_DIR$/eq2s_func.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/EQ2Sheep.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/eq2s_guild.py" />
         <option value="$PROJECT_DIR$/eq2s_main.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/eq2s_quary.py" />
         <option value="$PROJECT_DIR$/eq2s_char.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="232" />
-    <option name="y" value="59" />
-    <option name="width" value="1560" />
-    <option name="height" value="936" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -292,6 +334,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -312,29 +356,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
-  <component name="RunManager" selected="Python.EQ2Sheep (1)">
+  <component name="RunManager" selected="Python.EQ2Sheep">
     <configuration default="false" name="EQ2Sheep" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Source_Code" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="EQ2Sheep" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Source_Code/EQ2Sheep.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="EQ2Sheep (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -502,16 +527,14 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.EQ2Sheep" />
-      <item index="1" class="java.lang.String" itemvalue="Python.EQ2Sheep (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.EQ2Sheep (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.EQ2Sheep" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.EQ2Sheep" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -596,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481684267939</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="adjust Tables layout">
+      <created>1481690670739</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1481690670739</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -609,27 +639,45 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="232" y="59" width="1560" height="936" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12023653" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32960895" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09641728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32387096" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28258064" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39096776" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3463687" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -649,96 +697,40 @@
     <MESSAGE value="screenshot" />
     <MESSAGE value="Updated Readme" />
     <MESSAGE value="added screenshot" />
-    <option name="LAST_COMMIT_MESSAGE" value="added screenshot" />
+    <MESSAGE value="adjust Tables layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust Tables layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/eq2s_char.py</url>
-          <line>458</line>
+          <line>469</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/eq2s_char.py</url>
+          <line>581</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Source_Code/eq2s_aas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Source_Code/eq2s_guild.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-934">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Source_Code/EQ2Sheep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="85" selection-start-line="1" selection-start-column="85" selection-end-line="1" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eq2s_guild.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eq2s_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="759" column="41" selection-start-line="759" selection-start-column="41" selection-end-line="759" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eq2s_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
+        <state relative-caret-position="3555">
           <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
           <folding>
+            <element signature="e#0#213#0" expanded="true" />
             <element signature="e#480#1725#0" expanded="false" />
             <element signature="e#530#555#0" expanded="false" />
             <element signature="e#1772#1929#0" expanded="false" />
@@ -761,6 +753,7 @@
             <element signature="e#11749#11998#0" expanded="false" />
             <element signature="e#12033#12307#0" expanded="false" />
             <element signature="e#12353#12505#0" expanded="false" />
+            <element signature="e#12549#17928#0" expanded="false" />
             <element signature="e#13290#13299#0" expanded="false" />
             <element signature="e#17971#18351#0" expanded="false" />
             <element signature="e#18402#20006#0" expanded="false" />
@@ -772,7 +765,6 @@
             <element signature="e#21817#22012#0" expanded="false" />
             <element signature="e#22968#23109#0" expanded="false" />
             <element signature="e#23206#23665#0" expanded="false" />
-            <element signature="e#23244#23316#0" expanded="false" />
             <element signature="e#23369#23452#0" expanded="false" />
             <element signature="e#23506#23665#0" expanded="false" />
             <element signature="e#23574#23665#0" expanded="false" />
@@ -799,7 +791,6 @@
             <element signature="e#38612#38983#0" expanded="false" />
             <element signature="e#38633#38783#0" expanded="false" />
             <element signature="e#38834#38983#0" expanded="false" />
-            <element signature="e#39286#41982#0" expanded="false" />
             <element signature="e#40890#40965#0" expanded="false" />
             <element signature="e#42035#42283#0" expanded="false" />
             <element signature="e#42073#42145#0" expanded="false" />
@@ -827,69 +818,346 @@
             <element signature="e#46784#46825#0" expanded="false" />
             <element signature="e#46857#47195#0" expanded="false" />
             <element signature="e#46898#47195#0" expanded="false" />
-            <marker date="1481690031827" expanded="false" signature="0:404" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_guild.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11355">
+          <caret line="759" column="41" selection-start-line="759" selection-start-column="41" selection-end-line="759" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eq2s_char.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
+        <state relative-caret-position="1335">
           <caret line="383" column="35" selection-start-line="383" selection-start-column="35" selection-end-line="383" selection-end-column="35" />
           <folding>
-            <element signature="e#0#159#0" expanded="true" />
-            <element signature="e#360#13876#0" expanded="false" />
-            <element signature="e#410#4686#0" expanded="false" />
-            <element signature="e#1503#1616#0" expanded="false" />
-            <element signature="e#2587#2703#0" expanded="false" />
-            <element signature="e#4733#5099#0" expanded="false" />
-            <element signature="e#5153#6285#0" expanded="false" />
-            <element signature="e#5170#5482#0" expanded="false" />
-            <element signature="e#5333#5443#0" expanded="false" />
-            <element signature="e#5534#5700#0" expanded="false" />
-            <element signature="e#5869#6059#0" expanded="false" />
-            <element signature="e#6331#6606#0" expanded="false" />
-            <element signature="e#6459#6606#0" expanded="false" />
-            <element signature="e#6501#6606#0" expanded="false" />
-            <element signature="e#6670#7789#0" expanded="false" />
-            <element signature="e#6743#7747#0" expanded="false" />
-            <element signature="e#7496#7597#0" expanded="false" />
-            <element signature="e#7644#7747#0" expanded="false" />
-            <element signature="e#7847#8045#0" expanded="false" />
-            <element signature="e#8087#8459#0" expanded="false" />
-            <element signature="e#8205#8350#0" expanded="false" />
-            <element signature="e#8504#8864#0" expanded="false" />
-            <element signature="e#8911#9286#0" expanded="false" />
-            <element signature="e#9331#9438#0" expanded="false" />
-            <element signature="e#9484#10554#0" expanded="false" />
-            <element signature="e#9639#10132#0" expanded="false" />
-            <element signature="e#9733#10132#0" expanded="false" />
-            <element signature="e#9806#10132#0" expanded="false" />
-            <element signature="e#9859#10132#0" expanded="false" />
-            <element signature="e#9859#9909#0" expanded="false" />
-            <element signature="e#10166#10554#0" expanded="false" />
-            <element signature="e#10609#12229#0" expanded="false" />
-            <element signature="e#10680#10886#0" expanded="false" />
-            <element signature="e#10937#12229#0" expanded="false" />
-            <element signature="e#11122#11758#0" expanded="false" />
-            <element signature="e#11165#11429#0" expanded="false" />
-            <element signature="e#11491#11758#0" expanded="false" />
-            <element signature="e#11810#12229#0" expanded="false" />
-            <element signature="e#12281#12704#0" expanded="false" />
-            <element signature="e#12407#12560#0" expanded="false" />
-            <element signature="e#12763#13191#0" expanded="false" />
-            <element signature="e#12891#13046#0" expanded="false" />
-            <element signature="e#13228#13876#0" expanded="false" />
-            <element signature="e#13285#13465#0" expanded="false" />
-            <element signature="e#13291#13465#0" expanded="false" />
-            <element signature="e#13510#13615#0" expanded="false" />
-            <element signature="e#13641#13753#0" expanded="false" />
-            <element signature="e#13697#13753#0" expanded="false" />
-            <element signature="e#16417#16573#0" expanded="false" />
-            <element signature="e#17780#21600#0" expanded="false" />
-            <element signature="e#19055#21600#0" expanded="false" />
-            <element signature="e#19140#19338#0" expanded="false" />
-            <element signature="e#19188#19286#0" expanded="false" />
+            <element signature="e#0#189#0" expanded="true" />
+            <element signature="e#1541#1654#0" expanded="false" />
+            <element signature="e#2625#2741#0" expanded="false" />
+            <element signature="e#5479#5791#0" expanded="false" />
+            <element signature="e#5642#5752#0" expanded="false" />
+            <element signature="e#5843#6009#0" expanded="false" />
+            <element signature="e#6178#6368#0" expanded="false" />
+            <element signature="e#6684#6959#0" expanded="false" />
+            <element signature="e#6812#6959#0" expanded="false" />
+            <element signature="e#6854#6959#0" expanded="false" />
+            <element signature="e#7023#8142#0" expanded="false" />
+            <element signature="e#7096#8100#0" expanded="false" />
+            <element signature="e#7849#7950#0" expanded="false" />
+            <element signature="e#7997#8100#0" expanded="false" />
+            <element signature="e#8200#8398#0" expanded="false" />
+            <element signature="e#8440#8812#0" expanded="false" />
+            <element signature="e#8558#8703#0" expanded="false" />
+            <element signature="e#8857#9217#0" expanded="false" />
+            <element signature="e#10013#11083#0" expanded="false" />
+            <element signature="e#10168#10661#0" expanded="false" />
+            <element signature="e#10262#10661#0" expanded="false" />
+            <element signature="e#10335#10661#0" expanded="false" />
+            <element signature="e#10388#10661#0" expanded="false" />
+            <element signature="e#10388#10438#0" expanded="false" />
+            <element signature="e#10695#11083#0" expanded="false" />
+            <element signature="e#11138#12758#0" expanded="false" />
+            <element signature="e#11209#11415#0" expanded="false" />
+            <element signature="e#11466#12758#0" expanded="false" />
+            <element signature="e#11651#12287#0" expanded="false" />
+            <element signature="e#11694#11958#0" expanded="false" />
+            <element signature="e#12020#12287#0" expanded="false" />
+            <element signature="e#12339#12758#0" expanded="false" />
+            <element signature="e#12810#13233#0" expanded="false" />
+            <element signature="e#12936#13089#0" expanded="false" />
+            <element signature="e#13292#13720#0" expanded="false" />
+            <element signature="e#13420#13575#0" expanded="false" />
+            <element signature="e#13757#14405#0" expanded="false" />
+            <element signature="e#13814#13994#0" expanded="false" />
+            <element signature="e#13820#13994#0" expanded="false" />
+            <element signature="e#14039#14144#0" expanded="false" />
+            <element signature="e#14170#14282#0" expanded="false" />
+            <element signature="e#14226#14282#0" expanded="false" />
+            <element signature="e#14447#18266#0" expanded="false" />
+            <element signature="e#16946#17102#0" expanded="false" />
+            <element signature="e#18309#22129#0" expanded="false" />
+            <element signature="e#19584#22129#0" expanded="false" />
+            <element signature="e#19669#19867#0" expanded="false" />
+            <element signature="e#19717#19815#0" expanded="false" />
+            <element signature="e#23382#24657#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source_Code/eq2s_aas.py" />
+    <entry file="file://$PROJECT_DIR$/Source_Code/eq2s_guild.py" />
+    <entry file="file://$PROJECT_DIR$/Source_Code/EQ2Sheep.py" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_guild.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#370#3955#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-695">
+          <caret line="967" column="26" selection-start-line="967" selection-start-column="26" selection-end-line="967" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="890" column="72" selection-start-line="890" selection-start-column="16" selection-end-line="890" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#213#0" expanded="true" />
+            <element signature="e#480#1725#0" expanded="false" />
+            <element signature="e#530#555#0" expanded="false" />
+            <element signature="e#1772#1929#0" expanded="false" />
+            <element signature="e#6598#6870#0" expanded="false" />
+            <element signature="e#6922#8115#0" expanded="false" />
+            <element signature="e#8338#8582#0" expanded="false" />
+            <element signature="e#8454#8582#0" expanded="false" />
+            <element signature="e#8620#8740#0" expanded="false" />
+            <element signature="e#10044#10186#0" expanded="false" />
+            <element signature="e#10286#10578#0" expanded="false" />
+            <element signature="e#10325#10402#0" expanded="false" />
+            <element signature="e#10490#10578#0" expanded="false" />
+            <element signature="e#10634#10750#0" expanded="false" />
+            <element signature="e#10787#11417#0" expanded="false" />
+            <element signature="e#10868#10965#0" expanded="false" />
+            <element signature="e#11012#11073#0" expanded="false" />
+            <element signature="e#11182#11417#0" expanded="false" />
+            <element signature="e#11203#11362#0" expanded="false" />
+            <element signature="e#11453#11710#0" expanded="false" />
+            <element signature="e#11749#11998#0" expanded="false" />
+            <element signature="e#12033#12307#0" expanded="false" />
+            <element signature="e#12353#12505#0" expanded="false" />
+            <element signature="e#12549#17928#0" expanded="false" />
+            <element signature="e#13290#13299#0" expanded="false" />
+            <element signature="e#17971#18351#0" expanded="false" />
+            <element signature="e#18402#20006#0" expanded="false" />
+            <element signature="e#20067#23153#0" expanded="false" />
+            <element signature="e#20224#20472#0" expanded="false" />
+            <element signature="e#20344#20472#0" expanded="false" />
+            <element signature="e#20510#20630#0" expanded="false" />
+            <element signature="e#21517#21632#0" expanded="false" />
+            <element signature="e#21817#22012#0" expanded="false" />
+            <element signature="e#22968#23109#0" expanded="false" />
+            <element signature="e#23206#23665#0" expanded="false" />
+            <element signature="e#23369#23452#0" expanded="false" />
+            <element signature="e#23506#23665#0" expanded="false" />
+            <element signature="e#23574#23665#0" expanded="false" />
+            <element signature="e#23736#23841#0" expanded="false" />
+            <element signature="e#23881#24520#0" expanded="false" />
+            <element signature="e#23964#24063#0" expanded="false" />
+            <element signature="e#24110#24170#0" expanded="false" />
+            <element signature="e#24282#24520#0" expanded="false" />
+            <element signature="e#24303#24453#0" expanded="false" />
+            <element signature="e#24559#24823#0" expanded="false" />
+            <element signature="e#24861#25100#0" expanded="false" />
+            <element signature="e#25134#25397#0" expanded="false" />
+            <element signature="e#25443#25595#0" expanded="false" />
+            <element signature="e#25639#35258#0" expanded="false" />
+            <element signature="e#30857#31127#0" expanded="false" />
+            <element signature="e#31058#31086#0" expanded="false" />
+            <element signature="e#35301#35981#0" expanded="false" />
+            <element signature="e#36032#39225#0" expanded="false" />
+            <element signature="e#37230#37424#0" expanded="false" />
+            <element signature="e#38034#38117#0" expanded="false" />
+            <element signature="e#38179#38552#0" expanded="false" />
+            <element signature="e#38200#38352#0" expanded="false" />
+            <element signature="e#38403#38552#0" expanded="false" />
+            <element signature="e#38612#38983#0" expanded="false" />
+            <element signature="e#38633#38783#0" expanded="false" />
+            <element signature="e#38834#38983#0" expanded="false" />
+            <element signature="e#40890#40965#0" expanded="false" />
+            <element signature="e#42035#42283#0" expanded="false" />
+            <element signature="e#42073#42145#0" expanded="false" />
+            <element signature="e#42200#42283#0" expanded="false" />
+            <element signature="e#42350#42455#0" expanded="false" />
+            <element signature="e#42495#43384#0" expanded="false" />
+            <element signature="e#42578#42677#0" expanded="false" />
+            <element signature="e#42724#42784#0" expanded="false" />
+            <element signature="e#42896#43384#0" expanded="false" />
+            <element signature="e#42917#43329#0" expanded="false" />
+            <element signature="e#43423#43687#0" expanded="false" />
+            <element signature="e#43725#43964#0" expanded="false" />
+            <element signature="e#43998#44261#0" expanded="false" />
+            <element signature="e#44307#44574#0" expanded="false" />
+            <element signature="e#44621#44841#0" expanded="false" />
+            <element signature="e#44760#44802#0" expanded="false" />
+            <element signature="e#44884#45493#0" expanded="false" />
+            <element signature="e#44971#45474#0" expanded="false" />
+            <element signature="e#45000#45129#0" expanded="false" />
+            <element signature="e#45173#45301#0" expanded="false" />
+            <element signature="e#45345#45474#0" expanded="false" />
+            <element signature="e#45541#45725#0" expanded="false" />
+            <element signature="e#45768#46618#0" expanded="false" />
+            <element signature="e#46667#46734#0" expanded="false" />
+            <element signature="e#46784#46825#0" expanded="false" />
+            <element signature="e#46857#47195#0" expanded="false" />
+            <element signature="e#46898#47195#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_quary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <element signature="e#772#1900#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_char.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="490" column="0" selection-start-line="490" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#189#0" expanded="true" />
+            <element signature="e#1541#1654#0" expanded="false" />
+            <element signature="e#2625#2741#0" expanded="false" />
+            <element signature="e#5479#5791#0" expanded="false" />
+            <element signature="e#5642#5752#0" expanded="false" />
+            <element signature="e#5843#6009#0" expanded="false" />
+            <element signature="e#6178#6368#0" expanded="false" />
+            <element signature="e#6684#6959#0" expanded="false" />
+            <element signature="e#6812#6959#0" expanded="false" />
+            <element signature="e#6854#6959#0" expanded="false" />
+            <element signature="e#7023#8142#0" expanded="false" />
+            <element signature="e#7096#8100#0" expanded="false" />
+            <element signature="e#7849#7950#0" expanded="false" />
+            <element signature="e#7997#8100#0" expanded="false" />
+            <element signature="e#8200#8398#0" expanded="false" />
+            <element signature="e#8440#8812#0" expanded="false" />
+            <element signature="e#8558#8703#0" expanded="false" />
+            <element signature="e#8857#9217#0" expanded="false" />
+            <element signature="e#10013#11083#0" expanded="false" />
+            <element signature="e#10168#10661#0" expanded="false" />
+            <element signature="e#10262#10661#0" expanded="false" />
+            <element signature="e#10335#10661#0" expanded="false" />
+            <element signature="e#10388#10661#0" expanded="false" />
+            <element signature="e#10388#10438#0" expanded="false" />
+            <element signature="e#10695#11083#0" expanded="false" />
+            <element signature="e#11138#12758#0" expanded="false" />
+            <element signature="e#11209#11415#0" expanded="false" />
+            <element signature="e#11466#12758#0" expanded="false" />
+            <element signature="e#11651#12287#0" expanded="false" />
+            <element signature="e#11694#11958#0" expanded="false" />
+            <element signature="e#12020#12287#0" expanded="false" />
+            <element signature="e#12339#12758#0" expanded="false" />
+            <element signature="e#12810#13233#0" expanded="false" />
+            <element signature="e#12936#13089#0" expanded="false" />
+            <element signature="e#13292#13720#0" expanded="false" />
+            <element signature="e#13420#13575#0" expanded="false" />
+            <element signature="e#13757#14405#0" expanded="false" />
+            <element signature="e#13814#13994#0" expanded="false" />
+            <element signature="e#13820#13994#0" expanded="false" />
+            <element signature="e#14039#14144#0" expanded="false" />
+            <element signature="e#14170#14282#0" expanded="false" />
+            <element signature="e#14226#14282#0" expanded="false" />
+            <element signature="e#14447#18266#0" expanded="false" />
+            <element signature="e#16946#17102#0" expanded="false" />
+            <element signature="e#18309#22129#0" expanded="false" />
+            <element signature="e#19584#22129#0" expanded="false" />
+            <element signature="e#19669#19867#0" expanded="false" />
+            <element signature="e#19717#19815#0" expanded="false" />
+            <element signature="e#23382#24657#0" expanded="false" />
           </folding>
         </state>
       </provider>

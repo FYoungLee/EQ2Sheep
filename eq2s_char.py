@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QTextBrowser, QPushButton, QTableWidget, QLabel,\
-    QTableWidgetItem, QMessageBox, QHeaderView
-from PyQt5.QtCore import Qt
+    QTableWidgetItem, QMessageBox, QHeaderView, QTreeWidget, QTreeWidgetItem
+from PyQt5.QtCore import Qt, QMutex
 from PyQt5.Qt import QIcon, QSize
 from datetime import datetime
 import json
@@ -76,9 +76,15 @@ class Eq2db_charw(QDialog):
         self.achieveBtn.clicked.connect(self.whenAchieveBtnClicked)
         self.achieveBtn.setEnabled(False)
 
+        self.collectionBtn = QPushButton('Collections')
+        self.collectionBtn.setFixedWidth(100)
+        self.collectionBtn.clicked.connect(self.whenCollectionClicked)
+        self.collectionBtn.setEnabled(False)
+
         charLayoutBtn.addWidget(self.aaBtn)
         charLayoutBtn.addWidget(self.spellBtn)
         charLayoutBtn.addWidget(self.achieveBtn)
+        charLayoutBtn.addWidget(self.collectionBtn)
         charLayoutBtn.addWidget(self.guildBtn)
 
         topLayout = QHBoxLayout()
@@ -136,6 +142,7 @@ class Eq2db_charw(QDialog):
         self.spellBtn.setEnabled(True)
         self.achieveBtn.setEnabled(True)
         self.favorBtn.setEnabled(True)
+        self.collectionBtn.setEnabled(True)
 
     def displayCharEquipment(self):
         self.adornCollect(self.charDitail['equipmentslot_list'])
@@ -207,6 +214,10 @@ class Eq2db_charw(QDialog):
     def whenGuildBtnClicked(self):
         guild_win = eq2s_guild.Eq2db_guildw(self.charDitail['guild']['id'], self.parent())
         guild_win.show()
+
+    def whenCollectionClicked(self):
+        collection_win = Eq2db_char_collection(self.charDitail['id'], self.charDitail['displayname'], self)
+        collection_win.show()
 
     def adornCollect(self, eqpLst):
         # I need a list those keys contain all of this character's adornments and slot id information
@@ -463,6 +474,120 @@ class Eq2db_char_achievew(QDialog):
         self.achTable.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
         self.achTable.horizontalHeader().setSectionResizeMode(4, QHeaderView.ResizeToContents)
 
+
 class Eq2db_char_collection(QDialog):
-    def __init__(self, col, parent=None):
+    def __init__(self, char_id, char_name, parent=None):
         super(Eq2db_char_collection, self).__init__(parent)
+        self.setWindowTitle('{} Collections'.format(char_name))
+        self.setFixedSize(640, 480)
+        self.qy = None
+        # store all collection trees detail from query thread
+        self.collectionList = []
+        # store every piece that have already discovered
+        self.foundList = []
+        layout = QVBoxLayout()
+        self.bigTree = QTreeWidget(self)
+        self.bigTree.setColumnCount(3)
+        self.bigTree.setColumnWidth(0, 450)
+        self.bigTree.setColumnWidth(1, 50)
+        self.bigTree.setColumnWidth(2, 100)
+        self.bigTree.itemClicked.connect(self.whenItemClicked)
+
+        layout.addWidget(self.bigTree)
+        self.setLayout(layout)
+
+        self.send_query(char_id)
+
+    def send_query(self, char_id):
+        q = 'http://census.daybreakgames.com/s:fyang/get/eq2/character_misc?id={}&c:show=collection_list'\
+            .format(char_id)
+        self.qy = eq2s_quary.Queries(q, 'collection')
+        self.qy.rst_sent_items_detail.connect(self.whenCollectionReceived)
+        self.qy.start()
+
+    def whenCollectionReceived(self, returned):
+        try:
+            col_brief = returned['character_misc_list'][0]['collection_list']
+        except KeyError:
+            QMessageBox().critical(self, 'Loading Error', 'Time out, Collection loading failed.\nTry to reload again.')
+            return
+        self.actived_tree = {}
+        for each in col_brief:
+            self.actived_tree[each['crc']] = each['item_list']
+            try:
+                for ea in each['item_list']:
+                    self.foundList.append(ea['crc'])
+            except KeyError:
+                continue
+
+        trees_id = tuple(self.actived_tree.keys())
+        q = 'http://census.daybreakgames.com/s:fyang/get/eq2/collection?id='
+
+        qstart = 0
+        qend = 100
+        self.qcount = 0
+        self.received = 0
+        sliced_tree = trees_id[qstart: qend]
+        while len(sliced_tree):
+            ids = ''
+            for each in sliced_tree:
+                ids += '{},'.format(each)
+            qy = eq2s_quary.Queries(q+ids[:-1], 'collection', self)
+            qy.rst_sent_items_detail.connect(self.whenCollectionTreesReceived)
+            qy.setTerminationEnabled(True)
+            qy.start()
+            qstart += 100
+            qend += 100
+            sliced_tree = trees_id[qstart:qend]
+            self.qcount += 1
+
+    def whenCollectionTreesReceived(self, trees):
+        locker = QMutex()
+        locker.lock()
+        self.collectionList.extend(trees['collection_list'])
+        self.received += 1
+        locker.unlock()
+        if self.received < self.qcount:
+            return
+
+        category_list_order = {}
+        for each in self.collectionList:
+            try:
+                category_list_order[each['category']].append(each)
+            except BaseException:
+                category_list_order[each['category']] = [each]
+
+        for each in category_list_order:
+            cate_item = QTreeWidgetItem()
+            cate_item.setText(0, each)
+            for ea in category_list_order[each]:
+                try:
+                    name_item = QTreeWidgetItem()
+                    name_item.setText(0, ea['name'])
+                    name_item.setText(1, 'Lv.{}'.format(ea['level']))
+                    name_item.setText(2, 'Unpack Reward')
+                    name_item.setData(2, 1000, ea['reward_list'])
+                    for e in ea['reference_list']:
+                        pieces_item = QTreeWidgetItem()
+                        nm = e['name']
+                        if e['id'] in self.foundList:
+                            nm += ' * Found *'
+                        pieces_item.setText(0, nm)
+                        icon = QIcon()
+                        icon.addPixmap(eq2s_func.get_pixmap_in_db(e['icon']))
+                        pieces_item.setIcon(0, icon)
+                        name_item.addChild(pieces_item)
+                    cate_item.addChild(name_item)
+                except BaseException as err:
+                    print('Something wrong when adding items to collection tree, \n{}'.format(err))
+            self.bigTree.addTopLevelItem(cate_item)
+
+    def whenItemClicked(self, item, pos):
+        if pos == 2 and item.data(2, 1000) is not None:
+            for each in item.data(2, 1000):
+                try:
+                    for ea in each['item_list']:
+                        reward = eq2s_item.Eq2db_itemw(ea['id'], self)
+                        reward.show()
+                except KeyError or IndexError:
+                    pass
