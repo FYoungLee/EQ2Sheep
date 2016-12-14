@@ -586,8 +586,14 @@ class Eq2db_char_collection(QDialog):
         if pos == 2 and item.data(2, 1000) is not None:
             for each in item.data(2, 1000):
                 try:
-                    for ea in each['item_list']:
-                        reward = eq2s_item.Eq2db_itemw(ea['id'], self)
-                        reward.show()
+                    if 'item_list' in each.keys():
+
+                        for ea in each['item_list']:
+                            reward = eq2s_item.Eq2db_itemw(ea['id'], self)
+                            reward.show()
+                    elif 'selected_item_list' in each.keys():
+                        for ea in each['selected_item_list']:
+                            reward = eq2s_item.Eq2db_itemw(ea['id'], self)
+                            reward.show()
                 except KeyError or IndexError:
                     pass

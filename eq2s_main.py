@@ -22,7 +22,7 @@ class EQ2DB_MainW(QWidget):
         self.gfavor = []
         self.charfavor = []
         self.itemfavor = []
-        self.setWindowTitle('EQII Sheep    V0.61806  by: Fyoung')
+        self.setWindowTitle('EQII Sheep    V0.61812  by: Fyoung')
         self.setFixedSize(750, 750)
         # create main tab object
         self.mainTabWidget = QTabWidget()
@@ -1037,7 +1037,7 @@ class EQ2DB_MainW(QWidget):
         donateBtn2.setFixedSize(50,30)
         donateBtn2.clicked.connect(self.whenAlipaylDonateClicked)
         author_Label = QLabel()
-        author_text = 'Author: Fyoung  Email: lixleon@foxmail.com  Github: https://github.com/FYoungLee/EQ2Sheep'
+        author_text = '[Author] Fyoung  [Email] lixleon@foxmail.com  [Github] https://github.com/FYoungLee/EQ2Sheep'
         author_Label.setFixedHeight(30)
         author_Label.setText(author_text)
         bLayout.addWidget(author_Label)

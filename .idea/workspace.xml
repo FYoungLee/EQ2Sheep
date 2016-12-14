@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="246b2fab-4a42-4dda-af94-df3130f741dc" name="Default" comment="adjust Tables layout">
+    <list default="true" id="246b2fab-4a42-4dda-af94-df3130f741dc" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/eq2sheep v0.61805.rar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2sheep v0.61812.rar" afterPath="$PROJECT_DIR$/eq2sheep v0.61812.rar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/char_favor.json" afterPath="$PROJECT_DIR$/char_favor.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_char.py" afterPath="$PROJECT_DIR$/eq2s_char.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_quary.py" afterPath="$PROJECT_DIR$/eq2s_quary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_main.py" afterPath="$PROJECT_DIR$/eq2s_main.py" />
     </list>
     <ignored path="EQ2Sheep.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,14 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="eq2s_main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="eq2s_main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eq2s_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="890" column="72" selection-start-line="890" selection-start-column="16" selection-end-line="890" selection-end-column="72" />
+            <state relative-caret-position="360">
+              <caret line="1039" column="77" selection-start-line="1039" selection-start-column="77" selection-end-line="1039" selection-end-column="77" />
               <folding>
                 <element signature="e#0#213#0" expanded="true" />
-                <element signature="e#480#1725#0" expanded="false" />
                 <element signature="e#530#555#0" expanded="false" />
                 <element signature="e#1772#1929#0" expanded="false" />
                 <element signature="e#6598#6870#0" expanded="false" />
@@ -114,11 +114,9 @@
                 <element signature="e#45173#45301#0" expanded="false" />
                 <element signature="e#45345#45474#0" expanded="false" />
                 <element signature="e#45541#45725#0" expanded="false" />
-                <element signature="e#45768#46618#0" expanded="false" />
-                <element signature="e#46667#46734#0" expanded="false" />
-                <element signature="e#46784#46825#0" expanded="false" />
-                <element signature="e#46857#47195#0" expanded="false" />
-                <element signature="e#46898#47195#0" expanded="false" />
+                <element signature="e#46670#46737#0" expanded="false" />
+                <element signature="e#46860#47198#0" expanded="false" />
+                <element signature="e#46901#47198#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -173,11 +171,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eq2s_char.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="eq2s_char.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eq2s_char.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="490" column="0" selection-start-line="490" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
+            <state relative-caret-position="466">
+              <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
               <folding>
                 <element signature="e#0#189#0" expanded="true" />
                 <element signature="e#1541#1654#0" expanded="false" />
@@ -296,10 +294,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/EQ2Sheep.py" />
         <option value="$PROJECT_DIR$/eq2s_guild.py" />
-        <option value="$PROJECT_DIR$/eq2s_main.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/eq2s_quary.py" />
         <option value="$PROJECT_DIR$/eq2s_char.py" />
+        <option value="$PROJECT_DIR$/eq2s_main.py" />
       </list>
     </option>
   </component>
@@ -626,7 +624,21 @@
       <option name="project" value="LOCAL" />
       <updated>1481690670739</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added new collection checking function to character window">
+      <created>1481709703139</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1481709703139</updated>
+    </task>
+    <task id="LOCAL-00013" summary="new wrap">
+      <created>1481711128395</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1481711128395</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -647,7 +659,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32387096" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28258064" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39096776" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38994414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -692,13 +704,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update readme" />
-    <MESSAGE value="new wrap" />
     <MESSAGE value="fixed some crushing, added screenshot" />
     <MESSAGE value="screenshot" />
     <MESSAGE value="Updated Readme" />
     <MESSAGE value="added screenshot" />
     <MESSAGE value="adjust Tables layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust Tables layout" />
+    <MESSAGE value="added new collection checking function to character window" />
+    <MESSAGE value="new wrap" />
+    <MESSAGE value="display collection reward list fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="display collection reward list fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,8 +723,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/eq2s_char.py</url>
-          <line>581</line>
-          <option name="timeStamp" value="36" />
+          <line>598</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -720,7 +734,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -731,7 +745,6 @@
           <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
           <folding>
             <element signature="e#0#213#0" expanded="true" />
-            <element signature="e#480#1725#0" expanded="false" />
             <element signature="e#530#555#0" expanded="false" />
             <element signature="e#1772#1929#0" expanded="false" />
             <element signature="e#6598#6870#0" expanded="false" />
@@ -813,11 +826,9 @@
             <element signature="e#45173#45301#0" expanded="false" />
             <element signature="e#45345#45474#0" expanded="false" />
             <element signature="e#45541#45725#0" expanded="false" />
-            <element signature="e#45768#46618#0" expanded="false" />
-            <element signature="e#46667#46734#0" expanded="false" />
-            <element signature="e#46784#46825#0" expanded="false" />
-            <element signature="e#46857#47195#0" expanded="false" />
-            <element signature="e#46898#47195#0" expanded="false" />
+            <element signature="e#46670#46737#0" expanded="false" />
+            <element signature="e#46860#47198#0" expanded="false" />
+            <element signature="e#46901#47198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -986,13 +997,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_quary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <element signature="e#772#1900#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_char.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#189#0" expanded="true" />
+            <element signature="e#1541#1654#0" expanded="false" />
+            <element signature="e#2625#2741#0" expanded="false" />
+            <element signature="e#5479#5791#0" expanded="false" />
+            <element signature="e#5642#5752#0" expanded="false" />
+            <element signature="e#5843#6009#0" expanded="false" />
+            <element signature="e#6178#6368#0" expanded="false" />
+            <element signature="e#6684#6959#0" expanded="false" />
+            <element signature="e#6812#6959#0" expanded="false" />
+            <element signature="e#6854#6959#0" expanded="false" />
+            <element signature="e#7023#8142#0" expanded="false" />
+            <element signature="e#7096#8100#0" expanded="false" />
+            <element signature="e#7849#7950#0" expanded="false" />
+            <element signature="e#7997#8100#0" expanded="false" />
+            <element signature="e#8200#8398#0" expanded="false" />
+            <element signature="e#8440#8812#0" expanded="false" />
+            <element signature="e#8558#8703#0" expanded="false" />
+            <element signature="e#8857#9217#0" expanded="false" />
+            <element signature="e#10013#11083#0" expanded="false" />
+            <element signature="e#10168#10661#0" expanded="false" />
+            <element signature="e#10262#10661#0" expanded="false" />
+            <element signature="e#10335#10661#0" expanded="false" />
+            <element signature="e#10388#10661#0" expanded="false" />
+            <element signature="e#10388#10438#0" expanded="false" />
+            <element signature="e#10695#11083#0" expanded="false" />
+            <element signature="e#11138#12758#0" expanded="false" />
+            <element signature="e#11209#11415#0" expanded="false" />
+            <element signature="e#11466#12758#0" expanded="false" />
+            <element signature="e#11651#12287#0" expanded="false" />
+            <element signature="e#11694#11958#0" expanded="false" />
+            <element signature="e#12020#12287#0" expanded="false" />
+            <element signature="e#12339#12758#0" expanded="false" />
+            <element signature="e#12810#13233#0" expanded="false" />
+            <element signature="e#12936#13089#0" expanded="false" />
+            <element signature="e#13292#13720#0" expanded="false" />
+            <element signature="e#13420#13575#0" expanded="false" />
+            <element signature="e#13757#14405#0" expanded="false" />
+            <element signature="e#13814#13994#0" expanded="false" />
+            <element signature="e#13820#13994#0" expanded="false" />
+            <element signature="e#14039#14144#0" expanded="false" />
+            <element signature="e#14170#14282#0" expanded="false" />
+            <element signature="e#14226#14282#0" expanded="false" />
+            <element signature="e#14447#18266#0" expanded="false" />
+            <element signature="e#16946#17102#0" expanded="false" />
+            <element signature="e#18309#22129#0" expanded="false" />
+            <element signature="e#19584#22129#0" expanded="false" />
+            <element signature="e#19669#19867#0" expanded="false" />
+            <element signature="e#19717#19815#0" expanded="false" />
+            <element signature="e#23382#24657#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eq2s_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="890" column="72" selection-start-line="890" selection-start-column="16" selection-end-line="890" selection-end-column="72" />
+        <state relative-caret-position="360">
+          <caret line="1039" column="77" selection-start-line="1039" selection-start-column="77" selection-end-line="1039" selection-end-column="77" />
           <folding>
             <element signature="e#0#213#0" expanded="true" />
-            <element signature="e#480#1725#0" expanded="false" />
             <element signature="e#530#555#0" expanded="false" />
             <element signature="e#1772#1929#0" expanded="false" />
             <element signature="e#6598#6870#0" expanded="false" />
@@ -1074,90 +1163,9 @@
             <element signature="e#45173#45301#0" expanded="false" />
             <element signature="e#45345#45474#0" expanded="false" />
             <element signature="e#45541#45725#0" expanded="false" />
-            <element signature="e#45768#46618#0" expanded="false" />
-            <element signature="e#46667#46734#0" expanded="false" />
-            <element signature="e#46784#46825#0" expanded="false" />
-            <element signature="e#46857#47195#0" expanded="false" />
-            <element signature="e#46898#47195#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eq2s_quary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="e#772#1900#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eq2s_char.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="490" column="0" selection-start-line="490" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#189#0" expanded="true" />
-            <element signature="e#1541#1654#0" expanded="false" />
-            <element signature="e#2625#2741#0" expanded="false" />
-            <element signature="e#5479#5791#0" expanded="false" />
-            <element signature="e#5642#5752#0" expanded="false" />
-            <element signature="e#5843#6009#0" expanded="false" />
-            <element signature="e#6178#6368#0" expanded="false" />
-            <element signature="e#6684#6959#0" expanded="false" />
-            <element signature="e#6812#6959#0" expanded="false" />
-            <element signature="e#6854#6959#0" expanded="false" />
-            <element signature="e#7023#8142#0" expanded="false" />
-            <element signature="e#7096#8100#0" expanded="false" />
-            <element signature="e#7849#7950#0" expanded="false" />
-            <element signature="e#7997#8100#0" expanded="false" />
-            <element signature="e#8200#8398#0" expanded="false" />
-            <element signature="e#8440#8812#0" expanded="false" />
-            <element signature="e#8558#8703#0" expanded="false" />
-            <element signature="e#8857#9217#0" expanded="false" />
-            <element signature="e#10013#11083#0" expanded="false" />
-            <element signature="e#10168#10661#0" expanded="false" />
-            <element signature="e#10262#10661#0" expanded="false" />
-            <element signature="e#10335#10661#0" expanded="false" />
-            <element signature="e#10388#10661#0" expanded="false" />
-            <element signature="e#10388#10438#0" expanded="false" />
-            <element signature="e#10695#11083#0" expanded="false" />
-            <element signature="e#11138#12758#0" expanded="false" />
-            <element signature="e#11209#11415#0" expanded="false" />
-            <element signature="e#11466#12758#0" expanded="false" />
-            <element signature="e#11651#12287#0" expanded="false" />
-            <element signature="e#11694#11958#0" expanded="false" />
-            <element signature="e#12020#12287#0" expanded="false" />
-            <element signature="e#12339#12758#0" expanded="false" />
-            <element signature="e#12810#13233#0" expanded="false" />
-            <element signature="e#12936#13089#0" expanded="false" />
-            <element signature="e#13292#13720#0" expanded="false" />
-            <element signature="e#13420#13575#0" expanded="false" />
-            <element signature="e#13757#14405#0" expanded="false" />
-            <element signature="e#13814#13994#0" expanded="false" />
-            <element signature="e#13820#13994#0" expanded="false" />
-            <element signature="e#14039#14144#0" expanded="false" />
-            <element signature="e#14170#14282#0" expanded="false" />
-            <element signature="e#14226#14282#0" expanded="false" />
-            <element signature="e#14447#18266#0" expanded="false" />
-            <element signature="e#16946#17102#0" expanded="false" />
-            <element signature="e#18309#22129#0" expanded="false" />
-            <element signature="e#19584#22129#0" expanded="false" />
-            <element signature="e#19669#19867#0" expanded="false" />
-            <element signature="e#19717#19815#0" expanded="false" />
-            <element signature="e#23382#24657#0" expanded="false" />
+            <element signature="e#46670#46737#0" expanded="false" />
+            <element signature="e#46860#47198#0" expanded="false" />
+            <element signature="e#46901#47198#0" expanded="false" />
           </folding>
         </state>
       </provider>
