@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['EQ2Sheep.py'],
-             pathex=['C:\\Users\\Fyang\\AppData\\Local\\Programs\\Python\\Python35\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'D:\\MyCode\\PyCode\\eq2sheep'],
+             pathex=['C:\\Users\\Fyang\\AppData\\Local\\Programs\\Python\\Python35\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'D:\\MyCode\\PyCode\\EQ2Sheep'],
              binaries=None,
              datas=None,
              hiddenimports=[],

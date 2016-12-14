@@ -417,7 +417,7 @@ class EQ2DB_MainW(QWidget):
         url = 'http://census.daybreakgames.com/s:fyang/get/eq2/character?'
         cmd = ''
         if self.char_name_input.text() is not '':
-            cmd += 'name.first_lower=^{}'.format(self.char_name_input.text().lower())
+            cmd += 'name.first_lower=^{}'.format(self.char_name_input.text().lower().strip())
         if self.char_world_combox.currentText() is not '':
             cmd += '&locationdata.world={}'.format(self.char_world_combox.currentText())
         if self.char_class_min_line.text() is not '':

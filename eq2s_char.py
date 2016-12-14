@@ -252,6 +252,7 @@ class Eq2db_charw(QDialog):
                     self.rightEquipTable.item(tablePos[1], 1).setToolTip(t)
             except AttributeError:
                 badPosition = QTableWidgetItem('Missing Item from DBG Databases')
+                badPosition.setTextAlignment(Qt.AlignCenter)
                 badPosition.setToolTip(aid2info[each[0]])
                 if tablePos[0] == 'l':
                     self.leftEquipTable.setItem(tablePos[1], 0, badPosition)
@@ -298,6 +299,7 @@ class Eq2db_charw(QDialog):
             tp = [cur]
         with open('char_favor.json', 'w') as f:
             f.write(json.dumps(tp))
+
 
 class Eq2db_char_spellsw(QDialog):
     def __init__(self, raw_spells, char_name, parent=None):
@@ -429,22 +431,30 @@ class Eq2db_char_achievew(QDialog):
             r += 1
 
         for each in untm:
-            ct = QTableWidgetItem('Uncompleted')
-            ct.setTextAlignment(Qt.AlignCenter)
-            self.achTable.setItem(r, 0, ct)
-            nm = QTableWidgetItem(each['name'])
-            nm.setTextAlignment(Qt.AlignCenter)
-            nm.setToolTip(each['desc'])
-            self.achTable.setItem(r, 1, nm)
-            pts = QTableWidgetItem(str(each['points']))
-            pts.setTextAlignment(Qt.AlignCenter)
-            self.achTable.setItem(r, 2, pts)
-            tp = QTableWidgetItem(each['category'])
-            tp.setTextAlignment(Qt.AlignCenter)
-            self.achTable.setItem(r, 3, tp)
-            cate = QTableWidgetItem(each['subcategory'])
-            cate.setTextAlignment(Qt.AlignCenter)
-            self.achTable.setItem(r, 4, cate)
+            try:
+                ct = QTableWidgetItem('Uncompleted')
+                ct.setTextAlignment(Qt.AlignCenter)
+                self.achTable.setItem(r, 0, ct)
+                nm = QTableWidgetItem(each['name'])
+                nm.setTextAlignment(Qt.AlignCenter)
+                nm.setToolTip(each['desc'])
+                self.achTable.setItem(r, 1, nm)
+                pts = QTableWidgetItem(str(each['points']))
+                pts.setTextAlignment(Qt.AlignCenter)
+                self.achTable.setItem(r, 2, pts)
+                tp = QTableWidgetItem(each['category'])
+                tp.setTextAlignment(Qt.AlignCenter)
+                self.achTable.setItem(r, 3, tp)
+                cate = QTableWidgetItem(each['subcategory'])
+                cate.setTextAlignment(Qt.AlignCenter)
+                self.achTable.setItem(r, 4, cate)
+            except KeyError:
+                pass
             r += 1
 
         self.achTable.resizeColumnsToContents()
+
+
+class Eq2db_char_collection(QDialog):
+    def __init__(self, col, parent=None):
+        super(Eq2db_char_collection, self).__init__(parent)

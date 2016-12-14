@@ -225,7 +225,7 @@ def count_time(t):
     ret = ''
     for x in ['D', 'H', 'M', 'S']:
         if tm[x]:
-            ret += '{} {} '.format(tm[x], x)
+            ret += '{}{} '.format(tm[x], x)
     return ret
 
 
@@ -673,8 +673,15 @@ class CookCharText:
             if 'ts_class' in rawObj['type'].keys():
                 detail += 'Tradeskill Class : {}<br>'.format(rawObj['type']['ts_class'].capitalize())
                 detail += 'Tradeskill Level : {}<br>'.format(rawObj['type']['ts_level'])
+            try:
+                for each in rawObj['ascension_list']:
+                    if each['level']:
+                        detail += '{} : {}<br>'.format(each['name'].capitalize(), each['level'])
+            except KeyError:
+                pass
             if 'aa_level' in rawObj['type'].keys():
                 detail += 'AA Points : {}<br>'.format(rawObj['type']['aa_level'])
+
             detail += '<br>'
             detail += 'Health :  {}<br>'.format(rawObj['stats']['health']['max'])
             detail += 'Power :   {}<br>'.format(rawObj['stats']['power']['max'])
@@ -746,6 +753,13 @@ class CookCharText:
             detail += 'Delay:   {}<br>'.format(rawObj['stats']['weapon']['rangeddelay'])
 
             detail += '<br><font color="#CBA500">&nbsp;*** MISC ***</font><br>'
+
+            try:
+                detail += 'Current Zone: <br><font size="2">{}</font><br>'.format(rawObj['locationdata']['zonename'])
+                detail += 'Location: <br><font size="2">{}</font><br>'.format(rawObj['locationdata']['coords'])
+                detail += 'Bind Zone: <br><font size="2">{}</font><br>'.format(rawObj['locationdata']['bindzone'])
+            except KeyError:
+                pass
 
             detail += '</b></font>'
         except KeyError as err:
