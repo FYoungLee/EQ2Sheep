@@ -1,6 +1,8 @@
 # EQ2Sheep
 Finding stuff from the game EverQuestII
 
+[Download wrapped executable application] (eq2sheep v0.61805.rar)
+
 - [eq2s_aas.py](eq2s_aas.py) : Alternate Advancements tab widget
 
 - [eq2s_char.py](eq2s_char.py) : Character window widget
