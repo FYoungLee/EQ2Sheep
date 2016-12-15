@@ -140,8 +140,8 @@ class EQ2DB_MainW(QWidget):
         self.gfavor_load()
         favorLayout.addWidget(self.guild_favorite)
         favorLayout.addWidget(self.guild_get_favor_btn)
-        favorLayout.addWidget(self.guild_del_favor_btn)
         favorLayout.addWidget(self.guild_favorite_load_btn)
+        favorLayout.addWidget(self.guild_del_favor_btn)
 
         # put all things together
 
@@ -235,9 +235,9 @@ class EQ2DB_MainW(QWidget):
             guild_win = eq2s_guild.Eq2db_guildw(guild.data(1001), self)
             guild_win.show()
 
-    def guild_favorite_selected(self, index):
+    def guild_favorite_selected(self):
         try:
-            self.display_selected_guild(self.gfavor[index]['id'])
+            self.display_selected_guild(self.gfavor[self.guild_favorite.currentIndex()]['id'])
         except IndexError:
             return
 
@@ -390,11 +390,10 @@ class EQ2DB_MainW(QWidget):
         self.charfavor_load()
         favorLayout.addWidget(self.char_favorite)
         favorLayout.addWidget(self.char_get_favor_btn)
-        favorLayout.addWidget(self.char_del_favor_btn)
         favorLayout.addWidget(self.char_favorite_load_btn)
+        favorLayout.addWidget(self.char_del_favor_btn)
 
         # put all things together
-
         self.charLayout.addLayout(char_1st_row_layout)
         self.charLayout.addLayout(char_2nd_row_layout)
         self.charLayout.addLayout(btnsLayout)
@@ -516,9 +515,9 @@ class EQ2DB_MainW(QWidget):
                 guild_win = eq2s_guild.Eq2db_guildw(char.data(1001), self)
                 guild_win.show()
                 
-    def char_favorite_selected(self, index):
+    def char_favorite_selected(self):
         try:
-            self.display_selected_char(self.charfavor[index]['id'])
+            self.display_selected_char(self.charfavor[self.char_favorite.currentIndex()]['id'])
         except:
             pass
 
@@ -779,8 +778,8 @@ class EQ2DB_MainW(QWidget):
         self.itemfavor_load()
         favorLayout.addWidget(self.item_favorite)
         favorLayout.addWidget(self.item_get_favor_btn)
-        favorLayout.addWidget(self.item_del_favor_btn)
         favorLayout.addWidget(self.item_favorite_load_btn)
+        favorLayout.addWidget(self.item_del_favor_btn)
         
         # putting together
         self.itemlayout.addLayout(item_option_layout)
@@ -930,9 +929,9 @@ class EQ2DB_MainW(QWidget):
             item_win = eq2s_item.Eq2db_itemw(item.data(1001), self)
             item_win.show()
             
-    def item_favorite_selected(self, index):
+    def item_favorite_selected(self):
         try:
-            self.display_selected_item(self.itemfavor[index]['id'])
+            self.display_selected_item(self.itemfavor[self.item_favorite.currentIndex()]['id'])
         except:
             pass
 

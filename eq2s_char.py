@@ -509,7 +509,8 @@ class Eq2db_char_collection(QDialog):
         try:
             col_brief = returned['character_misc_list'][0]['collection_list']
         except KeyError:
-            QMessageBox().critical(self, 'Loading Error', 'Time out, Collection loading failed.\nTry to reload again.')
+            QMessageBox().critical(self, 'Loading Error', 'Time out or this character did not discover any collection.'
+                                                          '\nTry again.')
             return
         self.actived_tree = {}
         for each in col_brief:
