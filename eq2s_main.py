@@ -22,7 +22,7 @@ class EQ2DB_MainW(QWidget):
         self.gfavor = []
         self.charfavor = []
         self.itemfavor = []
-        self.setWindowTitle('EQII Sheep    V0.61812  by: Fyoung')
+        self.setWindowTitle('EQII Sheep    V0.61818  by: Fyoung')
         self.setFixedSize(750, 750)
         # create main tab object
         self.mainTabWidget = QTabWidget()

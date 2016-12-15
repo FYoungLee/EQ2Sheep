@@ -1,7 +1,7 @@
 # EQ2Sheep
 Finding stuff from the game EverQuestII
 
-[Download wrapped executable application] (eq2sheep v0.61812.rar)
+[Download wrapped executable application] (eq2sheep v0.61818.rar)
 
 ![image](https://github.com/FYoungLee/EQ2Sheep/blob/master/screenshot/Screen Shot 2016-12-15 at 09.10.27.png)
 ![image](https://github.com/FYoungLee/EQ2Sheep/blob/master/screenshot/Screen Shot 2016-12-15 at 10.51.58.png)
