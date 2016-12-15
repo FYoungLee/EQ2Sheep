@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246b2fab-4a42-4dda-af94-df3130f741dc" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot/20161214103844.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot/20161214105624.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EQ2Sheep.spec" afterPath="$PROJECT_DIR$/EQ2Sheep.spec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/char_favor.json" afterPath="$PROJECT_DIR$/char_favor.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_aas.py" afterPath="$PROJECT_DIR$/eq2s_aas.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_char.py" afterPath="$PROJECT_DIR$/eq2s_char.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_main.py" afterPath="$PROJECT_DIR$/eq2s_main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eq2s_quary.py" afterPath="$PROJECT_DIR$/eq2s_quary.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/item_favor.json" afterPath="$PROJECT_DIR$/item_favor.json" />
     </list>
     <ignored path="EQ2Sheep.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="eq2s_main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eq2s_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-183">
-              <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+            <state relative-caret-position="428">
+              <caret line="914" column="12" selection-start-line="914" selection-start-column="12" selection-end-line="916" selection-end-column="107" />
               <folding>
                 <element signature="e#0#213#0" expanded="true" />
                 <element signature="e#530#555#0" expanded="false" />
@@ -94,7 +95,6 @@
                 <element signature="e#38654#39025#0" expanded="false" />
                 <element signature="e#38675#38825#0" expanded="false" />
                 <element signature="e#38876#39025#0" expanded="false" />
-                <element signature="e#39328#42024#0" expanded="false" />
                 <element signature="e#40932#41007#0" expanded="false" />
                 <element signature="e#42077#42325#0" expanded="false" />
                 <element signature="e#42115#42187#0" expanded="false" />
@@ -175,15 +175,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="eq2s_item.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eq2s_item.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-813">
+              <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#147#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="eq2s_char.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eq2s_char.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="516" column="62" selection-start-line="516" selection-start-column="62" selection-end-line="516" selection-end-column="62" />
+            <state relative-caret-position="227">
+              <caret line="186" column="21" selection-start-line="186" selection-start-column="21" selection-end-line="186" selection-end-column="21" />
               <folding>
                 <element signature="e#0#189#0" expanded="true" />
+                <element signature="e#448#4995#0" expanded="false" />
                 <element signature="e#1541#1654#0" expanded="false" />
                 <element signature="e#2625#2741#0" expanded="false" />
+                <element signature="e#5042#5408#0" expanded="false" />
+                <element signature="e#5462#6638#0" expanded="false" />
                 <element signature="e#5479#5791#0" expanded="false" />
                 <element signature="e#5642#5752#0" expanded="false" />
                 <element signature="e#5843#6009#0" expanded="false" />
@@ -196,9 +211,10 @@
                 <element signature="e#7849#7950#0" expanded="false" />
                 <element signature="e#7997#8100#0" expanded="false" />
                 <element signature="e#8200#8398#0" expanded="false" />
-                <element signature="e#8440#8812#0" expanded="false" />
-                <element signature="e#8558#8703#0" expanded="false" />
                 <element signature="e#8857#9217#0" expanded="false" />
+                <element signature="e#9264#9639#0" expanded="false" />
+                <element signature="e#9684#9791#0" expanded="false" />
+                <element signature="e#9838#9967#0" expanded="false" />
                 <element signature="e#10013#11083#0" expanded="false" />
                 <element signature="e#10168#10661#0" expanded="false" />
                 <element signature="e#10262#10661#0" expanded="false" />
@@ -229,18 +245,19 @@
                 <element signature="e#19584#22129#0" expanded="false" />
                 <element signature="e#19669#19867#0" expanded="false" />
                 <element signature="e#19717#19815#0" expanded="false" />
+                <element signature="e#22174#27217#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eq2s_item.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eq2s_item.py">
+      <file leaf-file-name="eq2s_aas.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eq2s_aas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-813">
-              <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+            <state relative-caret-position="354">
+              <caret line="178" column="36" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
               <folding>
-                <element signature="e#0#147#0" expanded="true" />
+                <element signature="e#0#138#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -262,14 +279,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/eq2s_func.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/EQ2Sheep.py" />
         <option value="$PROJECT_DIR$/eq2s_guild.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/eq2s_item.py" />
         <option value="$PROJECT_DIR$/eq2s_quary.py" />
-        <option value="$PROJECT_DIR$/eq2s_char.py" />
         <option value="$PROJECT_DIR$/eq2s_main.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/eq2s_char.py" />
+        <option value="$PROJECT_DIR$/eq2s_aas.py" />
       </list>
     </option>
   </component>
@@ -334,6 +352,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="screenshot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EQ2S" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EQ2S" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eq2sheep" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -642,7 +678,21 @@
       <option name="project" value="LOCAL" />
       <updated>1481764050163</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed the favorite selection bug">
+      <created>1481770122871</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1481770122871</updated>
+    </task>
+    <task id="LOCAL-00017" summary="new screenshot">
+      <created>1481770487284</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1481770487284</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -658,16 +708,16 @@
     <frame x="0" y="23" width="1680" height="987" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09584087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24593128" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32387096" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28258064" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20670392" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20670392" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3463687" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3463687" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -717,7 +767,9 @@
     <MESSAGE value="new wrap" />
     <MESSAGE value="display collection reward list fixed" />
     <MESSAGE value="add refresh button to item window" />
-    <option name="LAST_COMMIT_MESSAGE" value="add refresh button to item window" />
+    <MESSAGE value="fixed the favorite selection bug" />
+    <MESSAGE value="new screenshot" />
+    <option name="LAST_COMMIT_MESSAGE" value="new screenshot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -725,11 +777,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/eq2s_char.py</url>
           <line>469</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/eq2s_char.py</url>
-          <line>599</line>
-          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -739,7 +786,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -810,7 +857,6 @@
             <element signature="e#38654#39025#0" expanded="false" />
             <element signature="e#38675#38825#0" expanded="false" />
             <element signature="e#38876#39025#0" expanded="false" />
-            <element signature="e#39328#42024#0" expanded="false" />
             <element signature="e#40932#41007#0" expanded="false" />
             <element signature="e#42077#42325#0" expanded="false" />
             <element signature="e#42115#42187#0" expanded="false" />
@@ -877,8 +923,11 @@
           <caret line="383" column="35" selection-start-line="383" selection-start-column="35" selection-end-line="383" selection-end-column="35" />
           <folding>
             <element signature="e#0#189#0" expanded="true" />
+            <element signature="e#448#4995#0" expanded="false" />
             <element signature="e#1541#1654#0" expanded="false" />
             <element signature="e#2625#2741#0" expanded="false" />
+            <element signature="e#5042#5408#0" expanded="false" />
+            <element signature="e#5462#6638#0" expanded="false" />
             <element signature="e#5479#5791#0" expanded="false" />
             <element signature="e#5642#5752#0" expanded="false" />
             <element signature="e#5843#6009#0" expanded="false" />
@@ -891,9 +940,10 @@
             <element signature="e#7849#7950#0" expanded="false" />
             <element signature="e#7997#8100#0" expanded="false" />
             <element signature="e#8200#8398#0" expanded="false" />
-            <element signature="e#8440#8812#0" expanded="false" />
-            <element signature="e#8558#8703#0" expanded="false" />
             <element signature="e#8857#9217#0" expanded="false" />
+            <element signature="e#9264#9639#0" expanded="false" />
+            <element signature="e#9684#9791#0" expanded="false" />
+            <element signature="e#9838#9967#0" expanded="false" />
             <element signature="e#10013#11083#0" expanded="false" />
             <element signature="e#10168#10661#0" expanded="false" />
             <element signature="e#10262#10661#0" expanded="false" />
@@ -924,6 +974,7 @@
             <element signature="e#19584#22129#0" expanded="false" />
             <element signature="e#19669#19867#0" expanded="false" />
             <element signature="e#19717#19815#0" expanded="false" />
+            <element signature="e#22174#27217#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -932,13 +983,6 @@
     <entry file="file://$PROJECT_DIR$/Source_Code/eq2s_aas.py" />
     <entry file="file://$PROJECT_DIR$/Source_Code/eq2s_guild.py" />
     <entry file="file://$PROJECT_DIR$/Source_Code/EQ2Sheep.py" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/eq2s_func.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -956,26 +1000,6 @@
           <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
           <folding>
             <element signature="e#0#145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eq2s_item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#147#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1015,14 +1039,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-813">
+          <caret line="149" column="40" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eq2s_char.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="516" column="62" selection-start-line="516" selection-start-column="62" selection-end-line="516" selection-end-column="62" />
+        <state relative-caret-position="227">
+          <caret line="186" column="21" selection-start-line="186" selection-start-column="21" selection-end-line="186" selection-end-column="21" />
           <folding>
             <element signature="e#0#189#0" expanded="true" />
+            <element signature="e#448#4995#0" expanded="false" />
             <element signature="e#1541#1654#0" expanded="false" />
             <element signature="e#2625#2741#0" expanded="false" />
+            <element signature="e#5042#5408#0" expanded="false" />
+            <element signature="e#5462#6638#0" expanded="false" />
             <element signature="e#5479#5791#0" expanded="false" />
             <element signature="e#5642#5752#0" expanded="false" />
             <element signature="e#5843#6009#0" expanded="false" />
@@ -1035,9 +1080,10 @@
             <element signature="e#7849#7950#0" expanded="false" />
             <element signature="e#7997#8100#0" expanded="false" />
             <element signature="e#8200#8398#0" expanded="false" />
-            <element signature="e#8440#8812#0" expanded="false" />
-            <element signature="e#8558#8703#0" expanded="false" />
             <element signature="e#8857#9217#0" expanded="false" />
+            <element signature="e#9264#9639#0" expanded="false" />
+            <element signature="e#9684#9791#0" expanded="false" />
+            <element signature="e#9838#9967#0" expanded="false" />
             <element signature="e#10013#11083#0" expanded="false" />
             <element signature="e#10168#10661#0" expanded="false" />
             <element signature="e#10262#10661#0" expanded="false" />
@@ -1068,14 +1114,35 @@
             <element signature="e#19584#22129#0" expanded="false" />
             <element signature="e#19669#19867#0" expanded="false" />
             <element signature="e#19717#19815#0" expanded="false" />
+            <element signature="e#22174#27217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EQ2Sheep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eq2s_aas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="178" column="36" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#138#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eq2s_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+        <state relative-caret-position="428">
+          <caret line="914" column="12" selection-start-line="914" selection-start-column="12" selection-end-line="916" selection-end-column="107" />
           <folding>
             <element signature="e#0#213#0" expanded="true" />
             <element signature="e#530#555#0" expanded="false" />
@@ -1138,7 +1205,6 @@
             <element signature="e#38654#39025#0" expanded="false" />
             <element signature="e#38675#38825#0" expanded="false" />
             <element signature="e#38876#39025#0" expanded="false" />
-            <element signature="e#39328#42024#0" expanded="false" />
             <element signature="e#40932#41007#0" expanded="false" />
             <element signature="e#42077#42325#0" expanded="false" />
             <element signature="e#42115#42187#0" expanded="false" />

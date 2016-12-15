@@ -184,7 +184,7 @@ class Eq2db_charw(QDialog):
         item_win.show()
 
     def whenAABtnClicked(self):
-        aapaket = {'current': self.charDitail['alternateadvancements']['alternateadvancement_list']}
+        aapaket = {'Current': self.charDitail['alternateadvancements']['alternateadvancement_list']}
         try:
             for each in self.charDitail['orderedalternateadvancement_list']:
                 aapaket[each['profilename']] = each['alternateadvancement_list']

@@ -3,8 +3,8 @@
 block_cipher = None
 
 
-a = Analysis(['EQ2Sheep.py'],
-             pathex=['C:\\Users\\Fyang\\AppData\\Local\\Programs\\Python\\Python35\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'D:\\MyCode\\PyCode\\EQ2Sheep'],
+a = Analysis(['eq2sheep.py'],
+             pathex=['/Users/mac/MyCode/EQ2S'],
              binaries=None,
              datas=None,
              hiddenimports=[],
@@ -21,8 +21,8 @@ exe = EXE(pyz,
           a.binaries,
           a.zipfiles,
           a.datas,
-          name='EQ2Sheep',
+          name='eq2sheep',
           debug=False,
           strip=False,
           upx=True,
-          console=False )
+          console=True )
