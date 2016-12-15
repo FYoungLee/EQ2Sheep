@@ -1,5 +1,5 @@
 # EQ2Sheep
-EQ2Sheep is an application built on the EQ2 Data Feeds API.
+EQ2Sheep is an application built on the EQ2 Data Feeds API, free to share anyone if you like it.
 
 [Download wrapped executable application] (eq2sheep v0.61818.rar)
 
