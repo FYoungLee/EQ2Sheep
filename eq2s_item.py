@@ -69,11 +69,17 @@ class Eq2db_itemw(QDialog):
         # self.item_detail_label.setWordWrap(True)
 
         topLayout = QHBoxLayout()
+        self.refreshBtn = QPushButton('Refresh')
+        self.refreshBtn.setFixedWidth(100)
+        self.refreshBtn.clicked.connect(self.sendItemQueryToThread)
+        self.refreshBtn.setEnabled(False)
         self.favorBtn = QPushButton('Favor')
         self.favorBtn.setFixedWidth(100)
         self.favorBtn.clicked.connect(self.saveToFavor)
         self.favorBtn.setEnabled(False)
+        topLayout.addWidget(self.refreshBtn)
         topLayout.addWidget(self.favorBtn)
+        topLayout.addSpacing(300)
 
         upper_layout = QHBoxLayout()
         upper_layout.addWidget(self.item_name_label)
@@ -87,12 +93,16 @@ class Eq2db_itemw(QDialog):
         self.setLayout(layout)
         # start query from census
         if isinstance(item_obj, int):
-            query = 'http://census.daybreakgames.com/s:fyang/get/eq2/item?id={}'.format(item_obj)
-            self.qy = eq2s_quary.Queries(query, 'item_detail')
-            self.qy.rst_sent_items_detail.connect(self.cook_detail)
-            self.qy.start()
+            self.itemid = item_obj
+            self.sendItemQueryToThread()
         elif isinstance(item_obj, dict):
             self.cooked_info(item_obj)
+
+    def sendItemQueryToThread(self):
+        query = 'http://census.daybreakgames.com/s:fyang/get/eq2/item?id={}'.format(self.itemid)
+        self.qy = eq2s_quary.Queries(query, 'item_detail')
+        self.qy.rst_sent_items_detail.connect(self.cook_detail)
+        self.qy.start()
 
     def cooked_info(self, item_obj):
         self.setWindowTitle('{} (Modified)'.format(item_obj['name']))
@@ -108,8 +118,10 @@ class Eq2db_itemw(QDialog):
         try:
             self.item_detail = detail['item_list'][0]
             self.setWindowTitle(self.item_detail['displayname'])
-        except KeyError:
-            QMessageBox().critical(self, 'Loading Error', 'Time out or Item did not exists.\nTry to reload again.')
+        except (KeyError, IndexError) as err:
+            QMessageBox().critical(self, 'Loading Error', 'Time out or Item did not exists.\nTry to reload again.\n{}'
+                                   .format(err))
+            self.favorBtn.setEnabled(True)
             return
         # icon handle
         pixicon = eq2s_func.get_pixmap_in_db(self.item_detail['iconid'])
@@ -134,6 +146,7 @@ class Eq2db_itemw(QDialog):
         if 'typeinfo' in self.item_detail.keys():
             if 'item_list' in self.item_detail['typeinfo'].keys():
                 self.contains_btn.setHidden(False)
+        self.favorBtn.setEnabled(True)
         self.favorBtn.setEnabled(True)
 
     def send_sets_query_to_thread(self):
