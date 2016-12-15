@@ -1,5 +1,5 @@
 # EQ2Sheep
-Finding stuff from the game EverQuestII
+EQ2Sheep is an application built on the EQ2 Data Feeds API.
 
 [Download wrapped executable application] (eq2sheep v0.61818.rar)
 
