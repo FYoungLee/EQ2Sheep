@@ -121,7 +121,7 @@ class Eq2db_itemw(QDialog):
         except (KeyError, IndexError) as err:
             QMessageBox().critical(self, 'Loading Error', 'Time out or Item did not exists.\nTry to reload again.\n{}'
                                    .format(err))
-            self.favorBtn.setEnabled(True)
+            self.refreshBtn.setEnabled(True)
             return
         # icon handle
         pixicon = eq2s_func.get_pixmap_in_db(self.item_detail['iconid'])
@@ -147,7 +147,7 @@ class Eq2db_itemw(QDialog):
             if 'item_list' in self.item_detail['typeinfo'].keys():
                 self.contains_btn.setHidden(False)
         self.favorBtn.setEnabled(True)
-        self.favorBtn.setEnabled(True)
+        self.refreshBtn.setEnabled(True)
 
     def send_sets_query_to_thread(self):
         self.sets_btn.setEnabled(False)
